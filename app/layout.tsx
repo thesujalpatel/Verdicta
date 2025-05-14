@@ -22,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
+      <body
+        className={`antialiased selection:text-background selection:bg-primary`}
+      >
         <Navigation />
         <div className="min-h-screen pt-15 max-w-6xl mx-auto">{children}</div>
         <Footer />

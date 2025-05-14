@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Landing() {
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-background h-screen">
+    <div className="absolute flex flex-col items-center w-full bg-background top-0 left-0 h-screen justify-center">
       <h1 className="text-6xl font-bold mb-4 text-primary">Verdicta</h1>
       <p className="text-2xl mb-8">Your AI-powered legal assistant</p>
       <div className="flex flex-col items-center">
