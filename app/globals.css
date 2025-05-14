@@ -18,7 +18,14 @@
   --color-foreground: #000000;
   --color-primary: #f05454;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
 
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
