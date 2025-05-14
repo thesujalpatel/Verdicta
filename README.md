@@ -1,4 +1,4 @@
-# ⚖️ Verdicta – Your AI-Powered Legal Companion (Comming Soon)
+# ⚖️ **Verdicta** Your AI-Powered Legal Companion (Comming Soon)
 
 **Verdicta** is an AI-driven LegalTech platform that empowers users to understand and interact with the law through AI chat, interactive trivia, and direct access to constitutional knowledge.
 
@@ -49,8 +49,15 @@ npm install
 npm run dev
 ```
 
+### 👥 Authors
+
+- [Sujal Patel](https://github.com/thesujalpatel)
+- [Shreyash Swami](https://github.com/Shreyash0712)
+
+### 📜 License
+
+This project is open-source under the MIT License.
+
 ### 📌 Final Tip
 
-```markdown
 👨‍💻 See [CONTRIBUTING.md](./CONTRIBUTING.md) to get started.
-```
