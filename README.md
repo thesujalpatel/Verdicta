@@ -58,6 +58,6 @@ npm run dev
 
 This project is open-source under the [MIT License](./LICENSE).
 
-### 📌 Final Tip
+### 🤝 Contribution
 
 👨‍💻 See [CONTRIBUTING.md](./CONTRIBUTING.md) to get started.
