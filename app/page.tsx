@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Landing() {
   return (
     <div className="absolute flex flex-col items-center w-full bg-background top-0 left-0 h-screen justify-center">
