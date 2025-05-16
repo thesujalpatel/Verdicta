@@ -55,6 +55,7 @@ npm run dev
 
 - [Sujal Patel](https://github.com/thesujalpatel)
 - [Shreyash Swami](https://github.com/Shreyash0712)
+- [Ved Patel](https://github.com/CoderVed04)
 
 ---
 
