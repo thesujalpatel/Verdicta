@@ -6,9 +6,8 @@ export default function Landing() {
     <div className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen w-full bg-background px-6 overflow-hidden">
       <img
         src={legal.src}
-        alt="Lady Justice"
-        className="absolute inset-0 mx-auto my-auto w-100 h-auto opacity-40 pointer-events-none select-none z-0"
-        style={{ objectFit: "contain" }}
+        alt="Sarnath"
+        className="absolute inset-0 mx-auto my-auto h-full opacity-40 pointer-events-none select-none z-0 object-contain"
       />
 
       <div className="relative z-10 w-full lg:w-1/2 flex flex-col items-center px-4 text-center">
@@ -55,7 +54,11 @@ export default function Landing() {
                 strokeWidth="2"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </span>
           </button>

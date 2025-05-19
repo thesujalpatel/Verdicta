@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
         {
           role: "system",
           content:
-            "You'll be used as a legal counsellor according to Indian constitution. First you will state the applicable laws and their sections and wordings, then explain them in layman's terms.",
+            "Your name is **Verdicta**. You'll be used as a legal counsellor according to Indian constitution. First you will state the applicable laws and their sections and wordings, then explain them in layman's terms.",
         },
         {
           role: "user",
