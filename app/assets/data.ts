@@ -14,7 +14,7 @@ const data = {
         },
         {
             id: 2,
-            name: "Explore the Constitution",
+            name: "Constitution",
             description: "Understand the Indian Constitution. Explore its articles, amendments, and provisions with ease.",
             icon: MdExplore,
             link: "/constitution",
@@ -22,7 +22,7 @@ const data = {
         },
         {
             id: 3,
-            name: "Legal Trivia",
+            name: "Trivia",
             description: "Test Your Legal Knowledge with Trivia. Challenge yourself with fun and informative legal trivia questions.",
             icon: GiInjustice,
             link: "/trivia",

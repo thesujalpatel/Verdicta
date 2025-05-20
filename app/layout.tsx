@@ -29,13 +29,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`antialiased selection:text-background selection:bg-primary ${gowun.className} ${cinzel.variable} text-lg`}
       >
         <Navigation />
         <div className="min-h-screen max-w-6xl px-10 mx-auto">{children}</div>
         <Footer />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function() {
+  try {
+    const theme = localStorage.getItem('theme') || 'system';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const themeToApply = theme === 'dark' || (theme === 'system' && prefersDark) ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', themeToApply);
+  } catch(e) {}
+})();
+          `,
+          }}
+        />
       </body>
     </html>
   );
