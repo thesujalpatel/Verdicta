@@ -2,7 +2,7 @@ import Link from "next/link";
 import legal from "./assets/Sarnath.png";
 import data from "./assets/data";
 import * as motion from "motion/react-client";
-import { PiArrowCircleRightFill } from "react-icons/pi";
+import { MdArrowForwardIos } from "react-icons/md";
 
 export default function Landing() {
   return (
@@ -22,15 +22,10 @@ export default function Landing() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <motion.div
-            className="flex flex-col items-center text-center gap-5"
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
+          <div className="flex flex-col items-center text-center gap-5">
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.7 }}
             >
               <h1 className="text-6xl text-primary font-[family-name:var(--font-cinzel)]">
@@ -47,12 +42,12 @@ export default function Landing() {
               Understand the Indian Constitution. <br />
               Test Your Legal Knowledge with Trivia.
             </motion.div>
-          </motion.div>
+          </div>
           <motion.div
             className="text-center"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
           >
             This assistant offers insights, not decisions.
             <br />
@@ -65,8 +60,16 @@ export default function Landing() {
         </motion.div>
       </div>
 
-      <div className="bg-foreground/10">
-        <div className="flex flex-col sm:flex-row justify-between gap-5 p-10">
+      <div className="bg-foreground/10 p-10">
+        <motion.div
+          className="text-center text-4xl font-[family-name:var(--font-cinzel)] mb-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          Services of Verdicta
+        </motion.div>
+        <div className="flex flex-col sm:flex-row justify-between gap-5">
           {Array.isArray(data?.cards) &&
             data.cards.map((card, idx) => {
               const Icon = card.icon;
@@ -90,7 +93,7 @@ export default function Landing() {
                     <div className="text-3xl font-[family-name:var(--font-cinzel)]">
                       {card.name}
                     </div>
-                    <div className="text-foreground">{card.description}</div>
+                    <div className="text-foreground/80">{card.description}</div>
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
@@ -100,10 +103,13 @@ export default function Landing() {
                   >
                     <Link
                       href={card.link}
-                      className="flex items-center justify-center bg-primary px-3 py-2 text-sm font-medium text-background w-fit"
+                      className="flex items-center justify-center bg-primary/40 px-2 py-1 font-medium w-fit text-base group"
                     >
                       {card.buttonLable}
-                      <PiArrowCircleRightFill className="ml-2 text-xl" />
+                      <MdArrowForwardIos
+                        className="ml-2
+                      group-hover:translate-x-1 transition-transform duration-200"
+                      />
                     </Link>
                   </motion.div>
                 </motion.div>
