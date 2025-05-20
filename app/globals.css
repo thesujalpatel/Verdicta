@@ -2,21 +2,21 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #000000;
-  --color-primary: #f05454;
+  --color-background: #f6f7eb;
+  --color-foreground: #393e41;
+  --color-primary: #ff752b;
 }
 
 [data-theme="dark"] {
-  --color-background: #121212;
-  --color-foreground: #ffffff;
-  --color-primary: #ff0b55;
+  --color-background: #252728;
+  --color-foreground: #f6f7eb;
+  --color-primary: #fa8648;
 }
 
 [data-theme="light"] {
-  --color-background: #ffffff;
-  --color-foreground: #000000;
-  --color-primary: #f05454;
+  --color-background: #f6f7eb;
+  --color-foreground: #252728;
+  --color-primary: #ff752b;
 }
 *::-webkit-scrollbar {
   display: none;
