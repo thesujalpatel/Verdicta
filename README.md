@@ -67,4 +67,4 @@ This project is open-source under the [MIT License](./LICENSE).
 
 ### 🤝 Contribution
 
-👨‍💻 See [CONTRIBUTING.md](./CONTRIBUTING.md) to get started.
+👨‍💻 See [CONTRIBUTING](./CONTRIBUTING.md) to get started.
