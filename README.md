@@ -49,15 +49,21 @@ npm install
 npm run dev
 ```
 
+---
+
 ### 👥 Authors
 
 - [Sujal Patel](https://github.com/thesujalpatel)
 - [Shreyash Swami](https://github.com/Shreyash0712)
 
+---
+
 ### 📜 License
 
-This project is open-source under the MIT License.
+This project is open-source under the [MIT License](./LICENSE).
 
-### 📌 Final Tip
+---
+
+### 🤝 Contribution
 
 👨‍💻 See [CONTRIBUTING.md](./CONTRIBUTING.md) to get started.
