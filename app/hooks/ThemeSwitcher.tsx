@@ -42,7 +42,7 @@ export default function ThemeSwitcher() {
     <div className="flex items-center">
       <PiSun
         size={35}
-        className={`cursor-pointer p-2 rounded-lg ${
+        className={`cursor-pointer p-2 ${
           theme === "light"
             ? "text-primary bg-primary/10"
             : "text-foreground/50"
@@ -51,7 +51,7 @@ export default function ThemeSwitcher() {
       />
       <PiDevices
         size={35}
-        className={`cursor-pointer p-2 rounded-lg ${
+        className={`cursor-pointer p-2 ${
           theme === "system"
             ? "text-primary bg-primary/10"
             : "text-foreground/50"
@@ -60,7 +60,7 @@ export default function ThemeSwitcher() {
       />
       <PiMoon
         size={35}
-        className={`cursor-pointer p-2 rounded-lg ${
+        className={`cursor-pointer p-2 ${
           theme === "dark" ? "text-primary bg-primary/10" : "text-foreground/50"
         }`}
         onClick={() => handleChange("dark")}
