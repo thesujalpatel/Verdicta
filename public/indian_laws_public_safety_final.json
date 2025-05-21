@@ -1,0 +1,744 @@
+[
+    {
+        "section": "Section 23, Protection of Women from Domestic Violence Act",
+        "title": "Right to Residence",
+        "law_text": "The magistrate may pass an order allowing the woman to reside in the shared household, regardless of her ownership or title in the property.",
+        "explanation": "A woman cannot be kicked out of her home by in-laws or husband—even if her name isn’t on the house papers.",
+        "why_it_matters": "It ensures women's shelter rights and protection during family disputes.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 354A of the IPC",
+        "title": "Sexual Harassment",
+        "law_text": "Making unwelcome physical contact or demands for sexual favours is punishable.",
+        "explanation": "Creeps at work or anywhere else? They can be jailed.",
+        "why_it_matters": "Supports safe spaces, especially for women.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 509 IPC",
+        "title": "Eve Teasing / Verbal Harassment",
+        "law_text": "Word, gesture or act intended to insult the modesty of a woman is punishable.",
+        "explanation": "That creepy stare or rude comment on the street? Punishable by law.",
+        "why_it_matters": "Helps women fight against public harassment.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 302 of the IPC",
+        "title": "Punishment for Murder",
+        "law_text": "Whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine.",
+        "explanation": "Taking someone's life unlawfully is a grave offense with severe penalties.",
+        "why_it_matters": "Protects the fundamental right to life.",
+        "category": "violent_crimes",
+        "tags": [
+            "violence",
+            "assault",
+            "crime"
+        ]
+    },
+    {
+        "section": "Section 375 of the IPC",
+        "title": "Rape",
+        "law_text": "A man is said to commit rape if he engages in sexual intercourse with a woman without her consent.",
+        "explanation": "No means no. Consent is everything. Sex without it is a serious crime.",
+        "why_it_matters": "Protects bodily autonomy and punishes sexual violence.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 326 of the IPC",
+        "title": "Voluntarily Causing Grievous Hurt by Dangerous Weapons or Means",
+        "law_text": "Whoever, except in the case provided for by section 335, voluntarily causes grievous hurt by means of any instrument for shooting, stabbing or cutting, or any instrument which, used as a weapon of offence, is likely to cause death, shall be punished.",
+        "explanation": "Inflicting serious injuries with dangerous weapons is a punishable offense.",
+        "why_it_matters": "Protects individuals from severe physical harm.",
+        "category": "violent_crimes",
+        "tags": [
+            "violence",
+            "assault",
+            "crime"
+        ]
+    },
+    {
+        "section": "Section 377 of the IPC",
+        "title": "Unnatural Offences (Decriminalized)",
+        "law_text": "Previously criminalized same-sex relationships; struck down by Supreme Court in 2018.",
+        "explanation": "Being LGBTQ+ is no longer a crime in India!",
+        "why_it_matters": "Protects the rights of LGBTQ+ individuals to love freely.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 375 of the IPC",
+        "title": "Definition of Rape",
+        "law_text": "A man is said to commit rape if he engages in sexual intercourse with a woman without her consent.",
+        "explanation": "Consent is everything. If it’s not given, it’s rape.",
+        "why_it_matters": "Raises awareness of what legally counts as sexual violence.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 504 of the IPC",
+        "title": "Intentional Insult to Provoke Breach of Peace",
+        "law_text": "Whoever intentionally insults and provokes someone to break peace is punishable.",
+        "explanation": "Abusing someone to get them to fight back? That’s a crime.",
+        "why_it_matters": "Promotes peaceful behavior and protects against bullying or provocation.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 66C of the IT Act, 2000",
+        "title": "Identity Theft",
+        "law_text": "Whoever fraudulently uses electronic signature, password, or any other unique identification feature of any other person shall be punished.",
+        "explanation": "If someone uses your name, photos or ID online without permission, that’s illegal!",
+        "why_it_matters": "Protects your online identity from misuse and fraud.",
+        "category": "cybercrime",
+        "tags": [
+            "privacy",
+            "online",
+            "cyber"
+        ]
+    },
+    {
+        "section": "Section 354 of the IPC",
+        "title": "Outraging Modesty of a Woman",
+        "law_text": "Whoever assaults or uses criminal force on any woman, intending to outrage her modesty, shall be punished.",
+        "explanation": "No one can touch or harass a woman without her consent. Such acts can land them in jail.",
+        "why_it_matters": "Protects women from physical harassment in public or private places.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 11 of the Hindu Marriage Act, 1955",
+        "title": "Void Marriages",
+        "law_text": "A marriage is null and void if it violates conditions of Section 5, such as already being married to someone else.",
+        "explanation": "If someone is already married and tries to marry you, that marriage is illegal.",
+        "why_it_matters": "Protects individuals from deceitful or forced marriages.",
+        "category": "marriage_family",
+        "tags": [
+            "dowry",
+            "family",
+            "marriage"
+        ]
+    },
+    {
+        "section": "Section 27 of the Consumer Protection Act, 2019",
+        "title": "Rights of Consumers",
+        "law_text": "A consumer can file a complaint for defective goods or deficient services and seek compensation.",
+        "explanation": "Bought a bad product or got poor service? You can complain and get justice!",
+        "why_it_matters": "Empowers customers to stand up for their rights.",
+        "category": "consumer_rights",
+        "tags": [
+            "refund",
+            "finance",
+            "consumer"
+        ]
+    },
+    {
+        "section": "Section 23 of the Juvenile Justice Act",
+        "title": "Cruelty to Juveniles or Children",
+        "law_text": "Whoever, having the actual charge of, or control over, a child assaults, abandons or exposes the child to risk is punishable.",
+        "explanation": "Kids need care. Mistreating them is a crime!",
+        "why_it_matters": "Protects children from abuse or neglect.",
+        "category": "child_rights",
+        "tags": [
+            "abuse",
+            "education",
+            "children"
+        ]
+    },
+    {
+        "section": "Section 304B, IPC",
+        "title": "Dowry Death",
+        "law_text": "If a woman dies under unnatural circumstances within 7 years of marriage and it is shown that she was harassed over dowry, it's presumed to be a dowry death. Punishment is 7 years to life imprisonment.",
+        "explanation": "This protects brides from being tortured or killed over dowry demands after marriage.",
+        "why_it_matters": "It's a strong law against the evil of dowry-related violence and deaths.",
+        "category": "marriage_family",
+        "tags": [
+            "dowry",
+            "family",
+            "marriage"
+        ]
+    },
+    {
+        "section": "Section 24 of the RTI Act, 2005",
+        "title": "Exempted Organizations",
+        "law_text": "Certain intelligence and security organizations are exempt from the RTI Act, except in cases of corruption or human rights violations.",
+        "explanation": "You can't ask spies for info — unless they're corrupt or abusive.",
+        "why_it_matters": "Maintains security balance while ensuring accountability.",
+        "category": "citizen_rights",
+        "tags": [
+            "rti",
+            "transparency",
+            "government"
+        ]
+    },
+    {
+        "section": "Section 3 of the Dowry Prohibition Act, 1961",
+        "title": "Penalty for Giving or Taking Dowry",
+        "law_text": "Giving or taking dowry is punishable with imprisonment up to 5 years and fine.",
+        "explanation": "Dowry is illegal. Demanding it or giving it can land you in jail.",
+        "why_it_matters": "Helps stop forced financial transactions during marriage.",
+        "category": "marriage_family",
+        "tags": [
+            "dowry",
+            "family",
+            "marriage"
+        ]
+    },
+    {
+        "section": "Section 326A of the IPC",
+        "title": "Acid Attacks",
+        "law_text": "Voluntarily causing grievous hurt by acid is punishable with minimum 10 years' imprisonment.",
+        "explanation": "Throwing acid on someone? You’ll rot in jail.",
+        "why_it_matters": "Strong protection against one of the most heinous crimes.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "The Protection of Women from Domestic Violence Act, 2005",
+        "title": "Domestic Violence",
+        "law_text": "Provides protection to women from physical, sexual, verbal, emotional, and economic abuse.",
+        "explanation": "Any kind of abuse at home is wrong — and now it’s punishable.",
+        "why_it_matters": "Safeguards women from mistreatment in homes.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 294 of the IPC",
+        "title": "Obscene Acts and Songs",
+        "law_text": "Whoever does any obscene act in any public place shall be punished with imprisonment or fine.",
+        "explanation": "Nobody can act indecently or harass people in public by being vulgar.",
+        "why_it_matters": "Keeps public places safe and decent for everyone.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 376 of the IPC",
+        "title": "Punishment for Rape",
+        "law_text": "A person committing rape shall be punished with rigorous imprisonment not less than 10 years and may extend to life imprisonment.",
+        "explanation": "Sexual violence is a serious crime and leads to heavy punishment.",
+        "why_it_matters": "Protects women and ensures severe consequences for rapists.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Right to Information Act, 2005",
+        "title": "RTI – Ask the Government Anything",
+        "law_text": "Every citizen has the right to request information from any public authority, which is required to reply within 30 days.",
+        "explanation": "You can ask the government questions and they must answer. Transparency, baby!",
+        "why_it_matters": "Helps fight corruption and keeps authorities accountable.",
+        "category": "citizen_rights",
+        "tags": [
+            "rti",
+            "transparency",
+            "government"
+        ]
+    },
+    {
+        "section": "Section 27, Arms Act",
+        "title": "Using Illegal Arms",
+        "law_text": "Using any unlicensed weapon is punishable with imprisonment which may extend to life or even the death penalty if used in a murder.",
+        "explanation": "Having or using guns without a license is illegal and can lead to jail or worse if used to kill someone.",
+        "why_it_matters": "Prevents violence and regulates firearm use for public safety.",
+        "category": "weapons",
+        "tags": [
+            "illegal",
+            "violence",
+            "firearms"
+        ]
+    },
+    {
+        "section": "Section 497 of the IPC (Struck Down)",
+        "title": "Adultery Decriminalized",
+        "law_text": "Adultery is no longer a criminal offence but can be a reason for divorce.",
+        "explanation": "Cheating in marriage isn’t a crime now, but still a reason to divorce.",
+        "why_it_matters": "Supports gender equality and freedom in personal relationships.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 268 of the IPC",
+        "title": "Public Nuisance",
+        "law_text": "A person is guilty of a public nuisance who does any act or is guilty of an illegal omission which causes common injury, danger or annoyance to the public.",
+        "explanation": "Creating disturbances that harm the public can lead to legal consequences.",
+        "why_it_matters": "Maintains public order and safety.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "The Right of Children to Free and Compulsory Education Act, 2009",
+        "title": "RTE Act",
+        "law_text": "Every child aged 6 to 14 has the right to free and compulsory education.",
+        "explanation": "Schooling is a must, and it’s free till Class 8!",
+        "why_it_matters": "Promotes education and helps fight poverty.",
+        "category": "child_rights",
+        "tags": [
+            "abuse",
+            "education",
+            "children"
+        ]
+    },
+    {
+        "section": "Section 375 Explanation 2 of IPC",
+        "title": "Marital Rape (Unrecognized)",
+        "law_text": "Sexual intercourse by a man with his wife, the wife not being under fifteen years of age, is not rape.",
+        "explanation": "This part is controversial: marital rape isn't criminalized yet in India.",
+        "why_it_matters": "It’s a legal gap many activists are fighting to fix.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 144 of the CrPC",
+        "title": "Power to Issue Order in Urgent Cases of Nuisance or Apprehended Danger",
+        "law_text": "A District Magistrate, Sub-divisional Magistrate or any other Executive Magistrate specially empowered may, in urgent cases of nuisance or apprehended danger, issue orders to prevent obstruction, annoyance or injury.",
+        "explanation": "Authorities can impose restrictions to prevent potential threats to public peace.",
+        "why_it_matters": "Empowers authorities to act swiftly in emergencies.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 3 of the Environmental Protection Act, 1986",
+        "title": "Environmental Safeguards",
+        "law_text": "The central government can take measures to protect and improve the environment.",
+        "explanation": "The government must act against pollution and environmental harm.",
+        "why_it_matters": "Enables public pressure on authorities for environmental action.",
+        "category": "environment",
+        "tags": [
+            "protection",
+            "pollution",
+            "green"
+        ]
+    },
+    {
+        "section": "Section 270 of the IPC",
+        "title": "Malignant Act Likely to Spread Infection",
+        "law_text": "Whoever malignantly does any act which is likely to spread the infection of any disease dangerous to life shall be punished.",
+        "explanation": "Intentionally spreading a dangerous disease is a serious offense.",
+        "why_it_matters": "Deters deliberate acts that endanger public health.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 23 of the Juvenile Justice Act, 2015",
+        "title": "Cruelty to Children",
+        "law_text": "Whoever assaults, abandons, or willfully neglects a child is punishable with imprisonment.",
+        "explanation": "Harming or abandoning kids is not just wrong — it's illegal.",
+        "why_it_matters": "Protects children from abuse and neglect.",
+        "category": "child_rights",
+        "tags": [
+            "abuse",
+            "education",
+            "children"
+        ]
+    },
+    {
+        "section": "Section 125 of the CrPC",
+        "title": "Maintenance for Wife, Children, and Parents",
+        "law_text": "A person with sufficient means must maintain his wife, children, or parents if they cannot maintain themselves.",
+        "explanation": "If someone refuses to support their family, the court can make them pay.",
+        "why_it_matters": "Protects dependent family members from neglect.",
+        "category": "child_rights",
+        "tags": [
+            "abuse",
+            "education",
+            "children"
+        ]
+    },
+    {
+        "section": "Section 269SS, Income Tax Act",
+        "title": "Prohibition on Taking or Accepting Loans in Cash",
+        "law_text": "No person shall take or accept any loan or deposit of ₹20,000 or more in cash. It must be done through bank transfers, cheques, etc.",
+        "explanation": "You can’t take or give large amounts of cash loans. It must go through banks to keep it legal and traceable.",
+        "why_it_matters": "Helps in fighting black money and promotes transparency in transactions.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 66E, IT Act",
+        "title": "Violation of Privacy (Cyber)",
+        "law_text": "Whoever intentionally captures, publishes or transmits the image of a private area of any person without consent shall be punished with imprisonment up to 3 years or with fine up to ₹2 lakh or both.",
+        "explanation": "Taking or sharing private photos of someone without permission—even through phone or camera—is a crime.",
+        "why_it_matters": "It protects your digital and bodily privacy in the online world.",
+        "category": "cybercrime",
+        "tags": [
+            "privacy",
+            "online",
+            "cyber"
+        ]
+    },
+    {
+        "section": "Section 185 of the Motor Vehicles Act, 1988",
+        "title": "Drunk Driving",
+        "law_text": "Driving under the influence of alcohol is punishable with imprisonment or fine or both.",
+        "explanation": "Don't drink and drive! Not only is it unsafe, it's also illegal.",
+        "why_it_matters": "Helps prevent accidents and promotes road safety.",
+        "category": "traffic_law",
+        "tags": [
+            "driving",
+            "traffic",
+            "road"
+        ]
+    },
+    {
+        "section": "Section 66E of IT Act, 2000",
+        "title": "Violation of Privacy",
+        "law_text": "Capturing, publishing or transmitting the image of a private area of any person without their consent is punishable.",
+        "explanation": "You can't sneak photos of people in private moments. That's illegal.",
+        "why_it_matters": "Helps protect individuals from online exploitation.",
+        "category": "cybercrime",
+        "tags": [
+            "privacy",
+            "online",
+            "cyber"
+        ]
+    },
+    {
+        "section": "The Prohibition of Child Marriage Act, 2006",
+        "title": "Child Marriage Illegal",
+        "law_text": "Marriage of a boy under 21 or a girl under 18 is voidable and punishable.",
+        "explanation": "Kids can't be married. Period.",
+        "why_it_matters": "Protects children from early, forced marriages.",
+        "category": "child_rights",
+        "tags": [
+            "abuse",
+            "education",
+            "children"
+        ]
+    },
+    {
+        "section": "Section 308 of the IPC",
+        "title": "Attempt to Commit Culpable Homicide",
+        "law_text": "Whoever does any act with such intention or knowledge and under such circumstances that, if he by that act caused death, he would be guilty of culpable homicide not amounting to murder, shall be punished.",
+        "explanation": "Attempting to cause death without the intention to murder is still punishable.",
+        "why_it_matters": "Addresses serious harm attempts that fall short of murder.",
+        "category": "violent_crimes",
+        "tags": [
+            "violence",
+            "assault",
+            "crime"
+        ]
+    },
+    {
+        "section": "Section 304A of the IPC",
+        "title": "Causing Death by Negligence",
+        "law_text": "Whoever causes the death of any person by doing any rash or negligent act not amounting to culpable homicide shall be punished.",
+        "explanation": "Negligent actions leading to someone's death can result in punishment.",
+        "why_it_matters": "Promotes careful behavior to prevent accidental deaths.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "The Maternity Benefit Act, 1961",
+        "title": "Paid Maternity Leave",
+        "law_text": "Female employees are entitled to 26 weeks of paid maternity leave.",
+        "explanation": "If you're pregnant and working, your job must give you leave with pay.",
+        "why_it_matters": "Protects working mothers and their newborns.",
+        "category": "cybercrime",
+        "tags": [
+            "privacy",
+            "online",
+            "cyber"
+        ]
+    },
+    {
+        "section": "Section 125, CrPC",
+        "title": "Maintenance of Wife, Children and Parents",
+        "law_text": "If any person having sufficient means neglects or refuses to maintain his wife, legitimate or illegitimate minor child, or his father or mother unable to maintain themselves, a Magistrate may order such person to make a monthly allowance.",
+        "explanation": "This law makes sure that people who can afford it cannot abandon their families—wives, kids, or old parents. They must provide financial help if needed.",
+        "why_it_matters": "It protects financially dependent family members from being left helpless, especially women and elderly parents.",
+        "category": "child_rights",
+        "tags": [
+            "abuse",
+            "education",
+            "children"
+        ]
+    },
+    {
+        "section": "Section 138 of the Negotiable Instruments Act, 1881",
+        "title": "Cheque Bounce",
+        "law_text": "Dishonour of cheque for insufficiency of funds is a punishable offence.",
+        "explanation": "If someone gives you a dud cheque, they can go to jail.",
+        "why_it_matters": "Protects from financial fraud and bounce-related losses.",
+        "category": "consumer_rights",
+        "tags": [
+            "refund",
+            "finance",
+            "consumer"
+        ]
+    },
+    {
+        "section": "Section 188, IPC",
+        "title": "Disobedience to Order by Public Servant",
+        "law_text": "Disobedience to an order duly promulgated by a public servant, knowing about it, is punishable with imprisonment up to 6 months or fine or both.",
+        "explanation": "If the government or authorities set a rule—like curfews or lockdowns—you must follow it, or you could be punished.",
+        "why_it_matters": "It ensures safety during emergencies like pandemics, riots, or disasters.",
+        "category": "public_order",
+        "tags": [
+            "compliance",
+            "order",
+            "authority"
+        ]
+    },
+    {
+        "section": "Section 377 of the IPC (Repealed)",
+        "title": "Decriminalization of Homosexuality",
+        "law_text": "Consensual sexual acts between adults of any gender are not a crime.",
+        "explanation": "Love is love. You can’t be jailed for being gay or queer.",
+        "why_it_matters": "Protects LGBTQ+ rights and ensures freedom of identity.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 506 of the IPC",
+        "title": "Criminal Intimidation",
+        "law_text": "Whoever threatens another with injury to his person, reputation or property with intent to cause alarm, shall be punished.",
+        "explanation": "No one can threaten or scare you into doing something illegal or harmful.",
+        "why_it_matters": "Gives you the right to complain against anyone trying to bully or intimidate you.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 186, IPC",
+        "title": "Obstructing a Public Servant",
+        "law_text": "Whoever voluntarily obstructs any public servant in the discharge of his public functions shall be punished with imprisonment up to 3 months or fine up to ₹500 or both.",
+        "explanation": "This law stops people from interfering when police or any government officer is doing their duty.",
+        "why_it_matters": "It ensures public servants can do their jobs without being harassed, threatened, or blocked.",
+        "category": "public_order",
+        "tags": [
+            "compliance",
+            "order",
+            "authority"
+        ]
+    },
+    {
+        "section": "POSH Act, 2013",
+        "title": "Sexual Harassment at Workplace",
+        "law_text": "Provides protection to women from sexual harassment at their workplace and for the prevention and redressal of complaints.",
+        "explanation": "If you're made uncomfortable at work by someone, you have a legal path to complain.",
+        "why_it_matters": "Ensures safer workplaces, especially for women.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 269 of the IPC",
+        "title": "Negligent Act Likely to Spread Infection",
+        "law_text": "Whoever unlawfully or negligently does any act which is likely to spread the infection of any disease dangerous to life shall be punished.",
+        "explanation": "If you act carelessly and risk spreading a dangerous disease, you can be punished.",
+        "why_it_matters": "Encourages responsible behavior during health crises.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 354D IPC",
+        "title": "Stalking",
+        "law_text": "Any man who follows a woman or contacts her repeatedly despite clear disinterest is committing a crime.",
+        "explanation": "Following someone around or spamming them online? That’s stalking and it’s illegal.",
+        "why_it_matters": "Protects people from being harassed both online and offline.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 9, Hindu Marriage Act",
+        "title": "Restitution of Conjugal Rights",
+        "law_text": "When either the husband or the wife withdraws from the society of the other without reasonable excuse, the other party may apply for the restoration of conjugal rights.",
+        "explanation": "If a husband or wife leaves the other without a good reason, the abandoned partner can request legal help to return the marriage to normal.",
+        "why_it_matters": "It attempts to save marriages and promotes dialogue and legal process before divorce.",
+        "category": "marriage_family",
+        "tags": [
+            "dowry",
+            "family",
+            "marriage"
+        ]
+    },
+    {
+        "section": "Article 22 of the Constitution of India",
+        "title": "Protection Against Arrest and Detention",
+        "law_text": "No person who is arrested shall be detained in custody without being informed of the reason for such arrest nor shall he be denied the right to consult and to be defended by a legal practitioner of his choice.",
+        "explanation": "If police arrest you, they must tell you why and allow you to talk to your lawyer. You can't be kept in custody forever without a fair trial.",
+        "why_it_matters": "Protects you from illegal detention and gives you the right to defend yourself.",
+        "category": "citizen_rights",
+        "tags": [
+            "rti",
+            "transparency",
+            "government"
+        ]
+    },
+    {
+        "section": "Section 375A IPC",
+        "title": "Marital Rape (Not yet criminalized)",
+        "law_text": "Currently, forced intercourse by a husband is not considered rape under Indian law unless the wife is under 18.",
+        "explanation": "Sadly, marital rape isn’t fully criminalized yet—but the debate is ongoing.",
+        "why_it_matters": "Shows where the law still needs to evolve for better protection.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 354D of the IPC",
+        "title": "Stalking",
+        "law_text": "Any man who follows or contacts a woman repeatedly despite a clear indication of disinterest commits stalking.",
+        "explanation": "Keep following someone who’s not interested? That’s stalking, and it’s illegal.",
+        "why_it_matters": "Protects women’s right to privacy and safety.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 4, Child Labour (Prohibition and Regulation) Act",
+        "title": "Prohibition of Child Labour",
+        "law_text": "No child below 14 years shall be employed or permitted to work in any occupation or process.",
+        "explanation": "Kids under 14 cannot work in factories, shops, homes, or anywhere else. It’s illegal.",
+        "why_it_matters": "Protects children’s education and health by banning exploitation through labour.",
+        "category": "child_rights",
+        "tags": [
+            "abuse",
+            "education",
+            "children"
+        ]
+    },
+    {
+        "section": "Section 420 of IPC",
+        "title": "Cheating and Dishonest Inducement",
+        "law_text": "Whoever cheats and dishonestly induces delivery of property is punishable with up to 7 years’ imprisonment.",
+        "explanation": "Someone tricked you out of money or stuff? File a case!",
+        "why_it_matters": "Covers scams and frauds that common people face.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 509 of the IPC",
+        "title": "Insulting Modesty of a Woman",
+        "law_text": "Any word, gesture or act intended to insult the modesty of a woman is punishable.",
+        "explanation": "Catcalling, dirty comments, or creepy behavior? This law says nope!",
+        "why_it_matters": "Empowers women to take action against street harassment.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 188 of the IPC",
+        "title": "Disobedience to Order Duly Promulgated by Public Servant",
+        "law_text": "Whoever disobeys an order promulgated by a public servant, knowing that such disobedience causes or tends to cause obstruction, annoyance or injury, shall be punished.",
+        "explanation": "Ignoring lawful orders from authorities can be punishable.",
+        "why_it_matters": "Ensures compliance with lawful directives for public welfare.",
+        "category": "public_order",
+        "tags": [
+            "compliance",
+            "order",
+            "authority"
+        ]
+    },
+    {
+        "section": "Section 498A of the Indian Penal Code (IPC)",
+        "title": "Cruelty by Husband or Relatives",
+        "law_text": "Husband or relatives of the husband of a woman subjecting her to cruelty shall be punished with imprisonment up to 3 years and a fine.",
+        "explanation": "No one has the right to torture or harass a woman for dowry or anything else. The law will take strong action.",
+        "why_it_matters": "Helps protect women from domestic violence and dowry harassment.",
+        "category": "general",
+        "tags": [
+            "general"
+        ]
+    },
+    {
+        "section": "Section 376D of the IPC",
+        "title": "Gang Rape",
+        "law_text": "Where a woman is raped by one or more persons constituting a group, each person shall be deemed to have committed the offence.",
+        "explanation": "If a group commits rape, each one is punished equally.",
+        "why_it_matters": "Ensures no one escapes punishment in group crimes.",
+        "category": "women_safety",
+        "tags": [
+            "women",
+            "harassment",
+            "safety"
+        ]
+    },
+    {
+        "section": "Section 307 of the IPC",
+        "title": "Attempt to Murder",
+        "law_text": "Whoever does any act with such intention or knowledge, and under such circumstances that, if he by that act caused death, he would be guilty of murder, shall be punished.",
+        "explanation": "Trying to kill someone, even if unsuccessful, is a serious crime.",
+        "why_it_matters": "Deters attempts to harm others severely.",
+        "category": "violent_crimes",
+        "tags": [
+            "violence",
+            "assault",
+            "crime"
+        ]
+    }
+]
