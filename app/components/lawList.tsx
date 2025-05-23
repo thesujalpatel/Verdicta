@@ -6,7 +6,7 @@ import {
   PiCaretDown,
   PiMagnifyingGlass,
   PiInfoBold,
-  PiCheckCircle,
+  // PiCheckCircle,
 } from "react-icons/pi";
 
 interface Law {
@@ -42,7 +42,7 @@ export default function LawList() {
   }, []);
 
   // Extract all unique tags
-  const allTags = Array.from(new Set(laws.flatMap((law) => law.tags || [])));
+  // const allTags = Array.from(new Set(laws.flatMap((law) => law.tags || [])));
 
   // Filter laws based on search, category, and tags
   const filteredLaws = laws.filter((law) => {
@@ -68,11 +68,11 @@ export default function LawList() {
   ];
 
   // Toggle tag selection
-  const toggleTag = (tag: string) => {
-    setActiveTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
-  };
+  // const toggleTag = (tag: string) => {
+  //   setActiveTags((prev) =>
+  //     prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+  //   );
+  // };
 
   return (
     <div className="py-8 px-4 md:px-8 max-w-5xl mx-auto">
