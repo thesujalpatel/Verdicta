@@ -25,7 +25,6 @@ export default function LawList() {
   const [category, setCategory] = useState<string>("all");
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [activeTags, setActiveTags] = useState<string[]>([]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -54,11 +53,8 @@ export default function LawList() {
       law.explanation.toLowerCase().includes(search.toLowerCase()) ||
       law.law_text.toLowerCase().includes(search.toLowerCase());
 
-    const matchTags =
-      activeTags.length === 0 ||
-      (law.tags && activeTags.every((tag) => law.tags.includes(tag)));
 
-    return matchCategory && matchSearch && matchTags;
+    return matchCategory && matchSearch;
   });
 
   // Extract categories for filter dropdown
