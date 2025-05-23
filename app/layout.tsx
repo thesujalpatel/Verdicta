@@ -38,7 +38,7 @@ export default function RootLayout({
         className={`antialiased selection:text-background selection:bg-primary ${gowun.className} ${cinzel.variable} text-lg`}
       >
         <Navigation />
-        <div className="min-h-screen max-w-6xl px-10 mx-auto">{children}</div>
+        <div className="min-h-screen max-w-7xl px-10 mx-auto">{children}</div>
         <Footer />
         <script
           dangerouslySetInnerHTML={{
