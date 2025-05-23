@@ -1,114 +1,171 @@
+"use client";
+
 import Link from "next/link";
 import legal from "./assets/Sarnath.png";
 import data from "./assets/data";
 import * as motion from "motion/react-client";
-import { PiArrowCircleRightFill } from "react-icons/pi";
+import { PiArrowCircleRightFill, PiCaretDownBold } from "react-icons/pi";
+import { useRef } from "react";
 
 export default function Landing() {
+  const featuresRef = useRef<HTMLDivElement>(null);
+
+  const scrollToFeatures = () => {
+    featuresRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
-      <div className="overflow-hidden h-screen relative">
-        <motion.img
-          src={legal.src}
-          alt="Sarnath"
-          className="absolute inset-0 mx-auto my-auto h-full pointer-events-none select-none z-[-1] object-contain translate-y-20"
-          initial={{ opacity: 0, scale: 1.1, y: 60 }}
-          animate={{ opacity: 0.65, scale: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        />
-        <motion.div
-          className="flex flex-col justify-center sm:justify-between sm:flex-row gap-30 items-center h-full py-10"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          <motion.div
-            className="flex flex-col items-center text-center gap-5"
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.7 }}
-            >
-              <h1 className="text-6xl text-primary font-[family-name:var(--font-cinzel)]">
-                Verdicta
-              </h1>
-              <div>Your AI-powered legal assistant</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1 }}
-            >
-              Chat with AI Legal Assistant. <br />
-              Understand the Indian Constitution. <br />
-              Test Your Legal Knowledge with Trivia.
-            </motion.div>
-          </motion.div>
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            This assistant offers insights, not decisions.
-            <br />
-            No algorithm can match your lawyer’s precision.
-            <br />
-            Consult the wise when stakes are high
-            <br />
-            Machines may help, but humans apply
-          </motion.div>
-        </motion.div>
-      </div>
+      <div className="overflow-hidden relative flex flex-col">
+        {/* Hero Section */}
+        <div className="flex-grow flex flex-col relative h-screen">
+          <motion.img
+            src={legal.src}
+            alt="Sarnath"
+            className="absolute inset-0 mx-auto h-full pointer-events-none select-none z-[-1] object-contain translate-y-20"
+            initial={{ opacity: 0, scale: 1.1, y: 60 }}
+            animate={{ opacity: 0.65, scale: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          />
 
-      <div className="bg-foreground/10">
-        <div className="flex flex-col sm:flex-row justify-between gap-5 p-10">
-          {Array.isArray(data?.cards) &&
-            data.cards.map((card, idx) => {
-              const Icon = card.icon;
-              return (
-                <motion.div
-                  key={card.id}
-                  className="w-full p-3 flex flex-col gap-5"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.2 + idx * 0.2 }}
+          <motion.div
+            className="flex flex-col justify-center md:justify-between md:flex-row gap-8 md:gap-16 items-center h-full py-10 px-4 md:px-10 mt-10 md:mt-0"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            <motion.div
+              className="flex flex-col items-center text-center gap-5"
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.7 }}
+                className="mb-4"
+              >
+                <h1 className="text-5xl md:text-6xl text-primary font-[family-name:var(--font-cinzel)] mb-2">
+                  Verdicta
+                </h1>
+                <div className="text-xl md:text-2xl font-medium">
+                  Your AI-powered legal assistant
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 1 }}
+                className="text-lg md:text-xl"
+              >
+                This assistant offers insights, not decisions.
+                <br />
+                No algorithm can match your lawyer’s precision.
+                <br />
+                Consult the wise when stakes are high
+                <br />
+                Machines may help, but humans apply
+              </motion.div>
+
+              <motion.div
+                className="mt-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 1.2 }}
+              >
+                <div
+                  onClick={scrollToFeatures}
+                  className="bg-primary text-background px-6 py-3 rounded-md hover:bg-primary/90 transition-colors flex items-center"
                 >
+                  Get Started
+                  <PiArrowCircleRightFill className="ml-2 text-xl" />
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              className="text-center max-w-md text-lg md:text-xl p-5 bg-background/50 backdrop-blur-sm rounded-lg border border-primary/30 shadow-lg"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <p className="font-[family-name:var(--font-cinzel)] text-primary mb-4">
+                Disclaimer
+              </p>
+              <p className="text-base">
+                This assistant offers insights, not decisions.
+                <br />
+                No algorithm can match your lawyer's precision.
+                <br />
+                Consult the wise when stakes are high
+                <br />
+                Machines may help, but humans apply
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Services Section */}
+        <div
+          ref={featuresRef}
+          className="bg-foreground/10 backdrop-blur-2xl py-16 px-4 md:px-10 rounded-t-3xl shadow-inner"
+        >
+          <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cinzel)] text-center mb-12 text-primary">
+            Our Services
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {Array.isArray(data?.cards) &&
+              data.cards.map((card, idx) => {
+                const Icon = card.icon;
+                return (
                   <motion.div
-                    className="flex flex-col gap-2"
-                    initial={{ scale: 0.95, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 + idx * 0.2 }}
+                    key={card.id}
+                    className="bg-background rounded-lg shadow-md overflow-hidden flex flex-col h-full border border-foreground/10 hover:border-primary/30 transition-colors"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.7, delay: 0.2 + idx * 0.2 }}
+                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   >
-                    <Icon className="text-5xl text-primary mb-3" />
-                    <div className="text-3xl font-[family-name:var(--font-cinzel)]">
-                      {card.name}
+                    <div className="p-6 flex-grow">
+                      <motion.div
+                        className="flex flex-col gap-4"
+                        initial={{ scale: 0.95, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 + idx * 0.2 }}
+                      >
+                        <Icon className="text-5xl text-primary mb-2" />
+                        <h3 className="text-2xl font-[family-name:var(--font-cinzel)] text-foreground">
+                          {card.name}
+                        </h3>
+                        <p className="text-foreground/80 text-base">
+                          {card.description}
+                        </p>
+                      </motion.div>
                     </div>
-                    <div className="text-foreground">{card.description}</div>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 + idx * 0.2 }}
-                  >
-                    <Link
-                      href={card.link}
-                      className="flex items-center justify-center bg-primary px-3 py-2 text-sm font-medium text-background w-fit"
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.5 + idx * 0.2 }}
+                      className="p-6 pt-0"
                     >
-                      {card.buttonLable}
-                      <PiArrowCircleRightFill className="ml-2 text-xl" />
-                    </Link>
+                      <Link
+                        href={card.link}
+                        className="flex items-center justify-center bg-primary hover:bg-primary/90 px-4 py-2 text-base font-medium text-background w-full rounded-md transition-colors"
+                      >
+                        {card.buttonLable}
+                        <PiArrowCircleRightFill className="ml-2 text-xl" />
+                      </Link>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
-              );
-            })}
+                );
+              })}
+          </div>
         </div>
       </div>
     </>
