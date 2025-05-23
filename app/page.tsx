@@ -18,11 +18,11 @@ export default function Landing() {
     <>
       <div className="overflow-hidden relative flex flex-col">
         {/* Hero Section */}
-        <div className="flex-grow flex flex-col relative h-screen">
+        <div className="flex-grow flex flex-col h-screen">
           <motion.img
             src={legal.src}
             alt="Sarnath"
-            className="absolute inset-0 mx-auto h-full pointer-events-none select-none z-[-1] object-contain translate-y-20"
+            className="absolute inset-0 mx-auto h-full pointer-events-none select-none z-[-1] object-contain "
             initial={{ opacity: 0, scale: 1.1, y: 60 }}
             animate={{ opacity: 0.65, scale: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
@@ -117,7 +117,7 @@ export default function Landing() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {Array.isArray(data?.cards) &&
-              data.cards.map((card, idx) => {
+              data.cards.map((card) => {
                 const Icon = card.icon;
                 return (
                   <motion.div
@@ -126,7 +126,7 @@ export default function Landing() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.7, delay: 0.2 + idx * 0.2 }}
+                    transition={{ duration: 0.7 }}
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   >
                     <div className="p-6 flex-grow">
@@ -135,7 +135,7 @@ export default function Landing() {
                         initial={{ scale: 0.95, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 + idx * 0.2 }}
+                        transition={{ duration: 0.6 }}
                       >
                         <Icon className="text-5xl text-primary mb-2" />
                         <h3 className="text-2xl font-[family-name:var(--font-cinzel)] text-foreground">
@@ -151,7 +151,7 @@ export default function Landing() {
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.5 + idx * 0.2 }}
+                      transition={{ duration: 0.5 }}
                       className="p-6 pt-0"
                     >
                       <Link
