@@ -1,32 +1,69 @@
+/* filepath: d:\Productivity\VS Code\GitHub\Verdicta\app\globals.css */
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
+
+/* Base Theme Colors */
 
 @theme {
+  --color-background: #1c1e22;
+  --color-foreground: #f0f2f5;
+  --color-primary: #fa8648;
+}
+:root {
   --color-background: #f6f7eb;
   --color-foreground: #393e41;
   --color-primary: #ff752b;
 }
 
+/* Dark Theme Variables */
 [data-theme="dark"] {
-  --color-background: #252728;
-  --color-foreground: #f6f7eb;
+  --color-background: #1c1e22;
+  --color-foreground: #f0f2f5;
   --color-primary: #fa8648;
 }
 
+/* Light Theme Variables */
 [data-theme="light"] {
   --color-background: #f6f7eb;
   --color-foreground: #252728;
   --color-primary: #ff752b;
-}
-*::-webkit-scrollbar {
-  display: none;
+  --color-muted: rgba(37, 39, 40, 0.1);
+  --color-error: #d32f2f;
+  --color-success: #388e3c;
 }
 
-* {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
+
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 8px;
+  opacity: 0.7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 }

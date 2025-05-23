@@ -3,17 +3,31 @@
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence, Variants, Transition } from "framer-motion";
+import { PiPaperPlaneRight, PiX, PiSpinnerGap } from "react-icons/pi";
 
 type ChatMessage = {
+  id: string;
   role: "user" | "assistant";
   content: string;
+  timestamp: Date;
 };
 
 const defaultMessage: ChatMessage = {
+  id: "welcome",
   role: "assistant",
   content:
-    "Hello! I am Verdicta, your legal counsellor bot. Ask me any question about Indian law.",
+    "# Welcome to Verdicta!\n\nI am your legal counsellor bot specializing in Indian law. Ask me questions about:\n\n- Rights and responsibilities\n- Legal procedures\n- Constitutional principles\n- Common legal scenarios\n\n*Please note: While I provide information based on Indian laws, my responses should not be considered legal advice. For specific legal matters, consult a qualified lawyer.*",
+  timestamp: new Date(),
 };
+
+// Example questions for suggestions
+const exampleQuestions = [
+  "What are my rights if stopped by police?",
+  "Explain Section 354 of IPC in simple terms",
+  "What are tenant rights in India?",
+  "How can I file an RTI application?",
+  "What is the procedure for bail in India?",
+];
 
 // Animation variables
 const fadeInUp: Variants = {
@@ -34,14 +48,14 @@ const scaleIn: Variants = {
 const messageVariants: Variants = {
   initial: (role: "user" | "assistant") => ({
     opacity: 0,
-    x: role === "user" ? 50 : -50,
-    scale: 0.95,
+    x: role === "user" ? 20 : -20,
+    scale: 0.98,
   }),
   animate: { opacity: 1, x: 0, scale: 1 },
   exit: (role: "user" | "assistant") => ({
     opacity: 0,
-    x: role === "user" ? 50 : -50,
-    scale: 0.95,
+    x: role === "user" ? 20 : -20,
+    scale: 0.98,
   }),
 };
 const springTransition: Transition = {
@@ -54,8 +68,22 @@ export default function LawChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([defaultMessage]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState(true);
   const messagesContainerRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
+  // Function to generate a unique ID
+  const generateId = () =>
+    `msg-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+
+  // Auto-focus input on page load
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
+  // Scroll to bottom when messages change
   const scrollToBottom = () => {
     const container = messagesContainerRef.current;
     if (container) {
@@ -67,10 +95,21 @@ export default function LawChat() {
     scrollToBottom();
   }, [messages, loading]);
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
+  // Handle sending a message
+  const sendMessage = async (text: string = input.trim()) => {
+    if (!text) return;
 
-    const userMessage: ChatMessage = { role: "user", content: input };
+    // Hide suggestions once user sends a message
+    if (suggestions) setSuggestions(false);
+
+    // Create user message
+    const userMessage: ChatMessage = {
+      id: generateId(),
+      role: "user",
+      content: text,
+      timestamp: new Date(),
+    };
+
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
@@ -79,33 +118,59 @@ export default function LawChat() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: input }),
+        body: JSON.stringify({ prompt: text }),
       });
+
+      if (!res.ok) {
+        throw new Error(`API returned status ${res.status}`);
+      }
 
       const data = await res.json();
       const aiMessage: ChatMessage = {
+        id: generateId(),
         role: "assistant",
         content: data.response || "No response from AI.",
+        timestamp: new Date(),
       };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching AI response:", error);
       setMessages((prev) => [
         ...prev,
         {
+          id: generateId(),
           role: "assistant",
-          content: "Error fetching response from AI.",
+          content:
+            "Sorry, I encountered an error while processing your request. Please try again later.",
+          timestamp: new Date(),
         },
       ]);
     } finally {
       setLoading(false);
+      // Focus the input again after sending
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") sendMessage();
+  // Handle keyboard shortcuts
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // Prevent new line
+      sendMessage();
+    }
   };
 
+  // Auto-resize textarea as user types
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+
+    // Auto-resize the textarea
+    const textarea = e.target;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  };
   return (
     <motion.div
       className="flex flex-col py-4 h-screen"
@@ -115,18 +180,30 @@ export default function LawChat() {
       exit="exit"
       transition={{ duration: 0.5 }}
     >
-      <motion.h1
-        className="text-3xl font-bold mb-4 text-primary font-[family-name:var(--font-cinzel)] h-fit"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
+      <motion.div
+        className="flex justify-between items-center mb-4"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
       >
-        Chat with AI
-      </motion.h1>
+        <h1 className="text-3xl font-bold text-primary font-[family-name:var(--font-cinzel)] h-fit">
+          Legal Assistant
+        </h1>
+
+        <motion.button
+          className="text-sm bg-foreground/10 rounded-full px-3 py-1 text-foreground/70 hover:bg-foreground/20 transition-colors"
+          onClick={() => setMessages([defaultMessage])}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          disabled={loading}
+        >
+          New Chat
+        </motion.button>
+      </motion.div>
 
       {/* Main Chat Box */}
       <motion.div
-        className="flex flex-col justify-between flex-1 overflow-hidden"
+        className="flex flex-col justify-between flex-1 overflow-hidden bg-background/30 rounded-lg border border-foreground/10 shadow-lg"
         variants={fadeIn}
         initial="initial"
         animate="animate"
@@ -135,13 +212,13 @@ export default function LawChat() {
         {/* Chat Messages */}
         <div
           ref={messagesContainerRef}
-          className="flex flex-col gap-2 bg-background overflow-y-auto flex-1 py-2"
+          className="flex flex-col gap-3 overflow-y-auto flex-1 py-4 px-4"
         >
           <AnimatePresence initial={false}>
-            {messages.map((msg, index) => (
+            {messages.map((msg) => (
               <motion.div
-                key={index}
-                className={`flex items-start gap-2 max-w-[85%] w-fit ${
+                key={msg.id}
+                className={`flex items-start gap-3 max-w-[90%] md:max-w-[80%] w-fit ${
                   msg.role === "user" ? "ml-auto flex-row-reverse" : "mr-auto"
                 }`}
                 custom={msg.role}
@@ -154,55 +231,98 @@ export default function LawChat() {
               >
                 {/* Avatar */}
                 <motion.div
-                  className="flex items-end h-full"
+                  className="flex-shrink-0 mt-1 sticky top-0"
                   initial={{ scale: 0.7, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.05 * index }}
                 >
-                  <motion.div
-                    className="w-9.5 h-9.5 text-white font-bold sticky bottom-0"
-                    initial={{ rotate: -10 }}
-                    animate={{ rotate: 0 }}
-                    transition={{ type: "spring", stiffness: 200 }}
+                  <div
+                    className={`h-8 w-8 text-background text-sm font-medium inline-flex items-center justify-center rounded-full shadow-md ${
+                      msg.role === "user" ? "bg-foreground" : "bg-primary"
+                    }`}
                   >
-                    {msg.role === "user" ? (
-                      <span className="text-sm h-8 w-8 bg-primary inline-flex items-center justify-center rounded-full">
-                        U
-                      </span>
-                    ) : (
-                      <span className="text-sm h-8 w-8 bg-primary inline-flex items-center justify-center rounded-full">
-                        V
-                      </span>
-                    )}
-                  </motion.div>
+                    {msg.role === "user" ? "You" : "V"}
+                  </div>
                 </motion.div>
+
                 {/* Message */}
                 <motion.div
-                  className={`prose prose-sm max-w-none text-foreground p-2 px-4 ${
-                    msg.role === "user" ? "bg-foreground/10" : "bg-primary/10"
+                  className={`prose prose-sm max-w-none rounded-2xl p-3 ${
+                    msg.role === "user"
+                      ? "bg-foreground/5 text-foreground rounded-tr-none"
+                      : "bg-primary/5 text-foreground rounded-tl-none border border-foreground/10"
                   }`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: 0.05 * index }}
                 >
                   <ReactMarkdown>{msg.content}</ReactMarkdown>
+
+                  {/* Message timestamp */}
+                  <div
+                    className={`text-[10px] mt-1 text-foreground/50 ${
+                      msg.role === "user" ? "text-right" : ""
+                    }`}
+                  >
+                    {new Date(msg.timestamp).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </div>
                 </motion.div>
               </motion.div>
             ))}
           </AnimatePresence>
 
+          {/* Loading indicator */}
           <AnimatePresence>
             {loading && (
               <motion.div
-                className="text-sm text-foreground italic px-4"
-                variants={fadeIn}
-                initial="initial"
-                animate="animate"
-                exit="exit"
+                className="flex items-center gap-2 text-foreground/70 px-4 mr-auto"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                AI is typing...
+                <div className="h-8 w-8 bg-primary/20 rounded-full flex items-center justify-center">
+                  <PiSpinnerGap
+                    className="animate-spin text-primary"
+                    size={16}
+                  />
+                </div>
+                <span className="text-sm">AI is thinking...</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Example questions (shown only initially) */}
+          <AnimatePresence>
+            {suggestions && messages.length === 1 && !loading && (
+              <motion.div
+                className="mt-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <p className="text-foreground/60 text-sm mb-3">
+                  Try asking these questions:
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {exampleQuestions.map((question, idx) => (
+                    <motion.button
+                      key={idx}
+                      className="text-sm bg-foreground/5 hover:bg-foreground/10 border border-foreground/10 rounded-full px-3 py-1 text-foreground/80 text-left transition-colors"
+                      onClick={() => sendMessage(question)}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                        transition: { delay: 0.1 + idx * 0.1 },
+                      }}
+                    >
+                      {question}
+                    </motion.button>
+                  ))}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -210,51 +330,60 @@ export default function LawChat() {
 
         {/* Input Bar */}
         <motion.div
-          className="sticky bottom-0 py-2 bg-background border-t"
+          className="sticky bottom-0 p-3 md:p-4 bg-background border-t border-foreground/10"
           variants={fadeInUp}
           initial="initial"
           animate="animate"
           transition={{ duration: 0.4, delay: 0.2 }}
         >
           <motion.div
-            className="flex items-center gap-2 p-1 px-2"
+            className="flex items-center gap-2 bg-foreground/5 rounded-lg p-2 border border-foreground/10 focus-within:border-primary/50 transition-colors"
             variants={scaleIn}
             initial="initial"
             animate="animate"
             transition={{ duration: 0.3, delay: 0.3 }}
           >
-            <motion.input
-              type="text"
-              className="w-full outline-none bg-transparent"
-              placeholder="Type your legal question..."
+            <textarea
+              ref={inputRef}
+              className="w-full outline-none bg-transparent resize-none min-h-[40px] max-h-[120px] py-1 px-2"
+              placeholder="Ask a legal question..."
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={handleInputChange}
               onKeyDown={handleKeyDown}
-              autoFocus
-              spellCheck={false}
-              initial={{ opacity: 0.7 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.2 }}
+              style={{ overflow: input ? "auto" : "hidden" }}
+              rows={1}
             />
+
+            {input && (
+              <motion.button
+                className="text-foreground/50 hover:text-foreground/80 p-1"
+                onClick={() => setInput("")}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+              >
+                <PiX size={18} />
+              </motion.button>
+            )}
+
             <motion.button
-              className="bg-primary/10 text-primary px-2 py-1 disabled:opacity-50"
-              onClick={sendMessage}
-              disabled={loading}
+              className={`bg-primary text-background p-2 rounded-md disabled:opacity-50 ${
+                !input.trim() ? "opacity-70" : "opacity-100"
+              }`}
+              onClick={() => sendMessage()}
+              disabled={loading || !input.trim()}
               whileTap={{ scale: 0.95 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={input.trim() ? { scale: 1.05 } : {}}
             >
-              Send
-            </motion.button>
-            <motion.button
-              className="bg-foreground/10 text-foreground px-2 py-1 disabled:opacity-50"
-              onClick={() => setMessages([defaultMessage])}
-              disabled={loading}
-              whileTap={{ scale: 0.95 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              Clear
+              <PiPaperPlaneRight size={18} />
             </motion.button>
           </motion.div>
+
+          <p className="text-xs text-center mt-2 text-foreground/50">
+            Verdicta provides information based on Indian law, but it's not
+            legal advice.
+          </p>
         </motion.div>
       </motion.div>
     </motion.div>

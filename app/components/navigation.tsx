@@ -7,7 +7,7 @@ export default function Navigation() {
   const pathname = usePathname();
   if (pathname === "/") return null; // hide navigation on landing page
   return (
-    <div className="fixed top-50 left-0 flex items-start">
+    <div className="fixed top-50 left-0 flex items-start z-10">
       <motion.div
         className="origin-top-left -rotate-90 text-2xl"
         initial={{ y: -50 }}
@@ -16,7 +16,7 @@ export default function Navigation() {
       >
         <Link
           href="/"
-          className="text-xl bg-primary text-background font-bold p-2 px-4 pt-[20px] font-[family-name:var(--font-cinzel)] tracking-wider"
+          className="text-xl bg-primary text-pri font-bold p-2 px-4 pt-[20px] font-[family-name:var(--font-cinzel)] tracking-wider"
         >
           Verdicta
         </Link>
