@@ -345,12 +345,13 @@ export default function LawChat() {
           >
             <textarea
               ref={inputRef}
-              className="w-full outline-none bg-transparent resize-none min-h-[40px] max-h-[120px] py-1 px-2"
+              className={`w-full outline-none bg-transparent resize-none min-h-[40px] max-h-[120px] py-1 px-2 ${
+                input ? "overflow-auto" : "overflow-hidden"
+              }`}
               placeholder="Ask a legal question..."
               value={input}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
-              style={{ overflow: input ? "auto" : "hidden" }}
               rows={1}
             />
 
@@ -379,9 +380,8 @@ export default function LawChat() {
               <PiPaperPlaneRight size={18} />
             </motion.button>
           </motion.div>
-
           <p className="text-xs text-center mt-2 text-foreground/50">
-            Verdicta provides information based on Indian law, but it's not
+            Verdicta provides information based on Indian law, but it&apos;s not
             legal advice.
           </p>
         </motion.div>

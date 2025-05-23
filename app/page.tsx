@@ -4,7 +4,7 @@ import Link from "next/link";
 import legal from "./assets/Sarnath.png";
 import data from "./assets/data";
 import * as motion from "motion/react-client";
-import { PiArrowCircleRightFill, PiCaretDownBold } from "react-icons/pi";
+import { PiArrowCircleRightFill } from "react-icons/pi";
 import { useRef } from "react";
 
 export default function Landing() {
@@ -96,7 +96,7 @@ export default function Landing() {
               <p className="text-base">
                 This assistant offers insights, not decisions.
                 <br />
-                No algorithm can match your lawyer's precision.
+                No algorithm can match your lawyer&apos;s precision.
                 <br />
                 Consult the wise when stakes are high
                 <br />
