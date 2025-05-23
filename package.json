@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "groq-sdk": "^0.21.0",
-    "gsap": "^3.13.0",
-    "lucide-react": "^0.511.0",
     "motion": "^12.12.1",
     "next": "15.3.2",
     "react": "^19.0.0",
