@@ -90,7 +90,7 @@ export default function Footer() {
               <div className="mt-4 text-sm text-foreground/60">
                 <p>For suggestions or feedback:</p>
                 <a
-                  href="https://github.com/sujalpatel2003/verdicta/issues"
+                  href="https://github.com/thesujalpatel/verdicta/issues"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Contact us on GitHub"
