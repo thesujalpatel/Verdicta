@@ -143,7 +143,7 @@ export default function LawList() {
             </select>
           </div>
 
-          {/* Tags Filter */}
+          {/* Tags Filter
           <div className="w-full md:w-2/3">
             <p className="text-sm font-medium text-foreground/70 mb-1">
               Filter by Tags:
@@ -164,7 +164,7 @@ export default function LawList() {
                 </button>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </motion.div>
 
@@ -251,7 +251,7 @@ export default function LawList() {
                       : law.law_text}
                   </p>
 
-                  {/* Tags */}
+                  {/* Tags
                   {law.tags && law.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-3">
                       {law.tags.map((tag) => (
@@ -263,7 +263,7 @@ export default function LawList() {
                         </span>
                       ))}
                     </div>
-                  )}
+                  )} */}
                 </div>
 
                 {/* Expanded Content */}

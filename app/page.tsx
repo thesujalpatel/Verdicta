@@ -59,13 +59,11 @@ export default function Landing() {
                 transition={{ duration: 0.7, delay: 1 }}
                 className="text-lg md:text-xl"
               >
-                This assistant offers insights, not decisions.
+                Chat with Your AI Legal Assistant.
                 <br />
-                No algorithm can match your lawyer’s precision.
+                Understand the Indian Laws.
                 <br />
-                Consult the wise when stakes are high
-                <br />
-                Machines may help, but humans apply
+                Test Your Legal Knowledge with Trivia.
               </motion.div>
 
               <motion.div
@@ -94,13 +92,7 @@ export default function Landing() {
                 Disclaimer
               </p>
               <p className="text-base">
-                This assistant offers insights, not decisions.
-                <br />
-                No algorithm can match your lawyer&apos;s precision.
-                <br />
-                Consult the wise when stakes are high
-                <br />
-                Machines may help, but humans apply
+                The information provided by this AI legal assistant is for general informational purposes only and does not constitute legal advice. While efforts are made to ensure accuracy, the system may occasionally produce incomplete or outdated responses. Users are strongly advised to consult a qualified legal professional for advice specific to their individual circumstances.
               </p>
             </motion.div>
           </motion.div>

@@ -236,11 +236,9 @@ export default function LawChat() {
                   animate={{ scale: 1, opacity: 1 }}
                 >
                   <div
-                    className={`h-8 w-8 text-background text-sm font-medium inline-flex items-center justify-center rounded-full shadow-md ${
-                      msg.role === "user" ? "bg-foreground" : "bg-primary"
-                    }`}
+                    className={"h-8 w-8 text-primary border-2 border-primary text-sm font-medium inline-flex items-center justify-center rounded-full shadow-md"}
                   >
-                    {msg.role === "user" ? "You" : "V"}
+                    {msg.role === "user" ? "U" : "AI"}
                   </div>
                 </motion.div>
 
