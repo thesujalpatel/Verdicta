@@ -16,9 +16,9 @@ export default function Landing() {
 
   return (
     <>
-      <div className="overflow-hidden relative flex flex-col">
+      <div className="overflow-hidden relative flex flex-col min-h-screen">
         {/* Hero Section */}
-        <div className="flex-grow flex flex-col min-h-screen">
+        <div className="flex-grow flex flex-col sm:h-screen h-auto">
           <motion.img
             src={legal.src}
             alt="Sarnath"
