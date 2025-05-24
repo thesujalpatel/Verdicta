@@ -18,11 +18,11 @@ export default function Landing() {
     <>
       <div className="overflow-hidden relative flex flex-col">
         {/* Hero Section */}
-        <div className="flex-grow flex flex-col h-screen">
+        <div className="flex-grow flex flex-col min-h-screen">
           <motion.img
             src={legal.src}
             alt="Sarnath"
-            className="absolute inset-0 mx-auto h-full pointer-events-none select-none z-[-1] object-contain "
+            className="absolute inset-0 mx-auto h-screen pointer-events-none select-none z-[-1] object-contain translate-y-20"
             initial={{ opacity: 0, scale: 1.1, y: 60 }}
             animate={{ opacity: 0.65, scale: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
@@ -92,7 +92,13 @@ export default function Landing() {
                 Disclaimer
               </p>
               <p className="text-base">
-                The information provided by this AI legal assistant is for general informational purposes only and does not constitute legal advice. While efforts are made to ensure accuracy, the system may occasionally produce incomplete or outdated responses. Users are strongly advised to consult a qualified legal professional for advice specific to their individual circumstances.
+                The information provided by this AI legal assistant is for
+                general informational purposes only and does not constitute
+                legal advice. While efforts are made to ensure accuracy, the
+                system may occasionally produce incomplete or outdated
+                responses. Users are strongly advised to consult a qualified
+                legal professional for advice specific to their individual
+                circumstances.
               </p>
             </motion.div>
           </motion.div>
@@ -101,9 +107,9 @@ export default function Landing() {
         {/* Services Section */}
         <div
           ref={featuresRef}
-          className="bg-foreground/10 backdrop-blur-2xl py-16 px-4 md:px-10 rounded-t-3xl shadow-inner"
+          className="bg-foreground/10 backdrop-blur-2xl sm:py-16 py-5 px-4 md:px-10 rounded-t-3xl shadow-inner"
         >
-          <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cinzel)] text-center mb-12 text-primary">
+          <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cinzel)] text-center sm:mb-12 mb-5 text-primary">
             Our Services
           </h2>
 

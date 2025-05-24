@@ -173,7 +173,7 @@ export default function LawChat() {
   };
   return (
     <motion.div
-      className="flex flex-col py-4 h-screen"
+      className="flex flex-col py-4 sm:h-screen h-[calc(100vh-3rem)]"
       variants={fadeInUp}
       initial="initial"
       animate="animate"
@@ -236,7 +236,9 @@ export default function LawChat() {
                   animate={{ scale: 1, opacity: 1 }}
                 >
                   <div
-                    className={"h-8 w-8 text-primary border-2 border-primary text-sm font-medium inline-flex items-center justify-center rounded-full shadow-md"}
+                    className={
+                      "h-8 w-8 text-primary border-2 border-primary text-sm font-medium inline-flex items-center justify-center rounded-full shadow-md"
+                    }
                   >
                     {msg.role === "user" ? "U" : "AI"}
                   </div>
