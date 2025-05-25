@@ -1,6 +1,6 @@
 # ⚖️ **Verdicta** Your AI-Powered Legal Companion 
 
-## 🌐 Live: https://verdicta.netlify.app/
+### 🌐 Live: https://verdicta.netlify.app/
 
 **Verdicta** is an AI-driven LegalTech platform that empowers users to understand the Indian laws through AI chat, interactive trivia, and access to important laws.
 
