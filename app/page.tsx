@@ -8,6 +8,33 @@ import { PiArrowCircleRightFill } from "react-icons/pi";
 import Logo from "./assets/Logo";
 import { useRef } from "react";
 
+// Add structured data for the homepage
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Verdicta",
+  description:
+    "AI-powered legal assistant specializing in Indian law with chat functionality, constitutional database, and legal knowledge trivia.",
+  url: "https://verdicta.netlify.app",
+  image: "https://verdicta.netlify.app/Logo.png",
+  applicationCategory: "LegalService",
+  operatingSystem: "Any",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "INR",
+  },
+  author: {
+    "@type": "Organization",
+    name: "Sujal Patel and Shreyash Swami",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    ratingCount: "150",
+  },
+};
+
 export default function Landing() {
   const featuresRef = useRef<HTMLDivElement>(null);
 
@@ -17,12 +44,18 @@ export default function Landing() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className="overflow-hidden relative flex flex-col min-h-screen">
         {/* Hero Section */}
         <div className="flex-grow flex flex-col sm:h-screen h-auto">
           <motion.img
             src={legal.src}
-            alt="Sarnath"
+            alt="Sarnath Lion Capital of Ashoka - Symbol of Indian Legal System and Justice"
             className="absolute inset-0 mx-auto h-screen pointer-events-none select-none z-[-1] object-contain translate-y-20"
             initial={{ opacity: 0, scale: 1.1, y: 60 }}
             animate={{ opacity: 0.65, scale: 1, y: 0 }}

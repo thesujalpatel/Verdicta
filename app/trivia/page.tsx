@@ -1,5 +1,6 @@
 "use client";
 
+import { Metadata } from "next";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PiCheckCircle, PiXCircle, PiArrowCircleRight } from "react-icons/pi";
@@ -387,3 +388,36 @@ const sampleQuestions: Question[] = [
       "In the landmark judgment of Navtej Singh Johar v. Union of India (2018), the Supreme Court partially struck down Section 377, decriminalizing consensual sexual acts between adults. However, the section still applies to non-consensual acts and sexual acts with minors.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Legal Trivia Challenge",
+  description:
+    "Test your knowledge of Indian law with challenging trivia questions. Improve your legal knowledge and have fun!",
+  keywords:
+    "Legal Trivia, Indian Law, Trivia Challenge, Legal Knowledge, Law Quiz",
+  authors: [{ name: "Your Name", url: "https://yourwebsite.com" }],
+  openGraph: {
+    title: "Legal Trivia Challenge",
+    description:
+      "Test your knowledge of Indian law with challenging trivia questions. Improve your legal knowledge and have fun!",
+    url: "https://yourwebsite.com/trivia",
+    siteName: "Legal Trivia",
+    images: [
+      {
+        url: "https://yourwebsite.com/trivia-image.jpg",
+        width: 800,
+        height: 600,
+        alt: "Legal Trivia Challenge",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Legal Trivia Challenge",
+    description:
+      "Test your knowledge of Indian law with challenging trivia questions. Improve your legal knowledge and have fun!",
+    images: ["https://yourwebsite.com/trivia-image.jpg"],
+  },
+};
