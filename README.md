@@ -1,4 +1,4 @@
-# ⚖️ **Verdicta** Your AI-Powered Legal Companion 
+# ⚖️ **Verdicta** Your AI-Powered Legal Companion
 
 ### 🌐 Live: https://verdicta.netlify.app/
 
@@ -21,7 +21,7 @@
 
 ### 🧩 Legal Trivia Mode
 
-- Test your knowledge oof legal laws using a game.
+- Test your knowledge of legal laws using a game.
 - Answer multiple-choice questions based on legal reasoning.
 - Learn and test your legal understanding interactively.
 
