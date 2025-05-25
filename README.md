@@ -1,6 +1,8 @@
-# ⚖️ **Verdicta** Your AI-Powered Legal Companion (Comming Soon)
+# ⚖️ **Verdicta** Your AI-Powered Legal Companion 
 
-**Verdicta** is an AI-driven LegalTech platform that empowers users to understand and interact with the law through AI chat, interactive trivia, and direct access to constitutional knowledge.
+## 🌐 Live: https://verdicta.netlify.app/
+
+**Verdicta** is an AI-driven LegalTech platform that empowers users to understand the Indian laws through AI chat, interactive trivia, and access to important laws.
 
 ## ✨ Features
 
@@ -8,18 +10,18 @@
 
 - Ask any legal question or upload legal problems.
 - Get structured arguments from both **Defense** and **Prosecution** sides.
-- Cites relevant legal provisions from Indian laws or U.S. legal codes.
-- Built using GPT or Claude via LangChain.
+- Cites relevant legal provisions from Indian laws.
+- Built using llama3-70b-8192.
 
-### 📖 Constitution Explorer
+### 📖 Law List
 
-- Browse the full Constitution (starting with India).
+- Browse through some useful and informational Indian Laws.
 - Simplified and categorized layout.
 - Great for students, researchers, and the general public.
 
 ### 🧩 Legal Trivia Mode
 
-- Enter a real-world legal situation.
+- Test your knowledge oof legal laws using a game.
 - Answer multiple-choice questions based on legal reasoning.
 - Learn and test your legal understanding interactively.
 
@@ -28,8 +30,8 @@
 | Layer     | Tools & Libraries     |
 | --------- | --------------------- |
 | Frontend  | Next.js, Tailwind CSS |
-| AI Engine | -                     |
-| Hosting   | -                     |
+| AI Engine | llama3-70b-8192       |
+| Hosting   | Netlify               |
 
 ## 🧠 Use Cases
 
