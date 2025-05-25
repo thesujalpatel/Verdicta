@@ -76,7 +76,7 @@ export default function Landing() {
               >
                 <div
                   onClick={scrollToFeatures}
-                  className="bg-primary text-background px-6 py-3 rounded-md hover:bg-primary/90 transition-colors flex items-center"
+                  className="bg-primary text-background px-6 py-3 rounded-md hover:bg-primary/90 transition-colors flex items-center cursor-pointer font-black"
                 >
                   Get Started
                   <PiArrowCircleRightFill className="ml-2 text-xl" />
@@ -156,7 +156,7 @@ export default function Landing() {
                     >
                       <Link
                         href={card.link}
-                        className="flex items-center justify-center bg-primary hover:bg-primary/90 px-4 py-2 text-base font-medium text-background w-full rounded-md transition-colors"
+                        className="flex items-center justify-center bg-primary hover:bg-primary/90 px-4 py-2 text-base text-background w-full rounded-md transition-colors font-black"
                       >
                         {card.buttonLable}
                         <PiArrowCircleRightFill className="ml-2 text-xl" />
