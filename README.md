@@ -36,7 +36,6 @@
 ## 🧠 Use Cases
 
 - 📘 Law students simulating arguments and researching laws.
-- 👩‍⚖️ Legal professionals quickly referencing laws and articles.
 - 🧑‍🎓 Citizens understanding their rights via Constitution viewer.
 - 🎮 Gamified learning through legal trivia quizzes.
 
