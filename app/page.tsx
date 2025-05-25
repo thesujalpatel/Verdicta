@@ -109,7 +109,7 @@ export default function Landing() {
         {/* Services Section */}
         <div
           ref={featuresRef}
-          className="bg-foreground/10 backdrop-blur-2xl sm:py-16 py-5 px-4 md:px-10 rounded-t-3xl shadow-inner"
+          className="bg-foreground/2 backdrop-blur-2xl sm:py-16 py-5 px-4 md:px-10 rounded-t-3xl shadow-inner"
         >
           <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-cinzel)] text-center sm:mb-12 mb-5 text-primary">
             Our Services
