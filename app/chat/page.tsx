@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence, Variants, Transition } from "framer-motion";
 import { PiPaperPlaneRight, PiX, PiSpinnerGap } from "react-icons/pi";
+import Logo from "../assets/Logo";
 
 type ChatMessage = {
   id: string;
@@ -237,10 +238,14 @@ export default function LawChat() {
                 >
                   <div
                     className={
-                      "h-8 w-8 text-primary border-2 border-primary text-sm font-medium inline-flex items-center justify-center rounded-full shadow-md"
+                      "h-8 w-8 text-primary border-2 border-primary/40 text-sm inline-flex items-center justify-center rounded-full shadow-md font-black"
                     }
                   >
-                    {msg.role === "user" ? "U" : "AI"}
+                    {msg.role === "user" ? (
+                      "U"
+                    ) : (
+                      <Logo className="w-4 h-4 text-primary" />
+                    )}
                   </div>
                 </motion.div>
 
