@@ -5,6 +5,7 @@ import legal from "./assets/Sarnath.png";
 import data from "./assets/data";
 import * as motion from "motion/react-client";
 import { PiArrowCircleRightFill } from "react-icons/pi";
+import Logo from "./assets/Logo";
 import { useRef } from "react";
 
 export default function Landing() {
@@ -29,7 +30,7 @@ export default function Landing() {
           />
 
           <motion.div
-            className="flex flex-col justify-center md:justify-between md:flex-row gap-8 md:gap-16 items-center h-full py-10 px-4 md:px-10 mt-10 md:mt-0"
+            className="flex flex-col justify-center md:justify-between md:flex-row gap-8 md:gap-16 items-center h-full py-10 px-4 md:px-10 mt-10 md:mt-0 backdrop-blur-xl md:backdrop-blur-none"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -46,8 +47,9 @@ export default function Landing() {
                 transition={{ duration: 0.7, delay: 0.7 }}
                 className="mb-4"
               >
-                <h1 className="text-5xl md:text-6xl text-primary font-[family-name:var(--font-cinzel)] mb-2">
-                  Verdicta
+                <h1 className="text-5xl md:text-6xl text-primary font-[family-name:var(--font-cinzel)] mb-2 flex items-baseline justify-center">
+                  <Logo className="sm:w-15 sm:h-15 w-12 h-12 translate-y-2 text-primary" />
+                  erdicta
                 </h1>
                 <div className="text-xl md:text-2xl font-medium">
                   Your AI-powered legal assistant
