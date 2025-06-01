@@ -16,18 +16,55 @@ type ChatMessage = {
 const defaultMessage: ChatMessage = {
   id: "welcome",
   role: "assistant",
-  content:
-    "# Welcome to Verdicta!\n\nI am your legal counsellor bot specializing in Indian law. Ask me questions about:\n\n- Rights and responsibilities\n- Legal procedures\n- Constitutional principles\n- Common legal scenarios\n\n*Please note: While I provide information based on Indian laws, my responses should not be considered legal advice. For specific legal matters, consult a qualified lawyer.*",
+  content: `# 🔍 Welcome to Verdicta Legal Assistant
+
+## 📋 Quick Overview
+Your comprehensive AI legal assistant specializing in Indian law, ready to provide structured legal guidance and information.
+
+## ⚖️ Legal Expertise Areas
+**Specialized Knowledge:**
+- **Constitutional Law**: Fundamental rights, directive principles, constitutional amendments
+- **Criminal Law**: IPC, CrPC, evidence law, bail procedures
+- **Civil Law**: Contract law, property law, family law, consumer protection
+- **Corporate Law**: Company law, securities law, labor law
+
+## 🎯 How I Can Help You
+**Legal Information Services:**
+- **Case Analysis**: Breaking down complex legal scenarios
+- **Procedure Guidance**: Step-by-step legal processes
+- **Rights Education**: Understanding your legal rights and obligations
+- **Document Insights**: Explaining legal documents and requirements
+
+## 📖 Example Questions You Can Ask
+**Popular Legal Queries:**
+- What are my fundamental rights under Article 21?
+- How to file a consumer complaint online?
+- Explain dowry laws and penalties in India
+- What is the process for anticipatory bail?
+- Rights of women under domestic violence law
+
+## ⚠️ Important Disclaimer
+**Please Note:**
+- 🚨 **Information Only**: Responses provide legal information, not personalized legal advice
+- 📝 **Consult Professionals**: For specific legal matters, always consult a qualified lawyer
+- ⏱️ **Current Laws**: Information based on current Indian legal framework
+
+## 🎯 Get Started
+Ask me any legal question and I'll provide structured, comprehensive information to help you understand your legal position.
+
+---
+*⚖️ Verdicta provides legal information based on Indian law. This is not personalized legal advice.*`,
   timestamp: new Date(),
 };
 
 // Example questions for suggestions
 const exampleQuestions = [
-  "What are my rights if stopped by police?",
-  "Explain Section 354 of IPC in simple terms",
-  "What are tenant rights in India?",
-  "How can I file an RTI application?",
-  "What is the procedure for bail in India?",
+  "What are my fundamental rights under Article 21?",
+  "Explain dowry laws and penalties in India",
+  "How to file a consumer complaint online?",
+  "What is the process for anticipatory bail?",
+  "Rights of women under domestic violence law",
+  "How to register an FIR and what are my rights?",
 ];
 
 // Animation variables
@@ -247,23 +284,150 @@ export default function LawChat() {
                       <Logo className="w-4 h-4 text-primary" />
                     )}
                   </div>
-                </motion.div>
-
+                </motion.div>{" "}
                 {/* Message */}
                 <motion.div
-                  className={`prose prose-sm max-w-none rounded-2xl p-3 ${
+                  className={`prose prose-sm max-w-none rounded-2xl p-4 ${
                     msg.role === "user"
-                      ? "bg-foreground/5 text-foreground rounded-tr-none"
-                      : "bg-primary/5 text-foreground rounded-tl-none border border-foreground/10"
+                      ? "bg-gradient-to-br from-primary/10 to-primary/5 text-foreground rounded-tr-none border border-primary/20"
+                      : "bg-gradient-to-br from-background to-background/80 text-foreground rounded-tl-none border border-foreground/10 shadow-sm"
                   }`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  <ReactMarkdown>{msg.content}</ReactMarkdown>
-
+                  {" "}
+                  {msg.role === "assistant" && (
+                    <div className="flex items-center gap-2 mb-3 pb-2 border-b border-foreground/10">
+                      <span className="text-xs font-medium text-primary">
+                        Legal Analysis
+                      </span>
+                      <div className="ml-auto flex items-center gap-1">
+                        <span className="text-xs text-foreground/40">⚖️</span>
+                        <span className="text-xs text-foreground/60">
+                          Indian Law
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  <div
+                    className={`${
+                      msg.role === "assistant" ? "legal-response" : ""
+                    }`}
+                  >
+                    <ReactMarkdown
+                      components={{
+                        // Main heading with icon and gradient background
+                        h1: ({ children }) => (
+                          <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-4 mb-4 border-l-4 border-primary">
+                            <h1 className="text-lg font-bold text-primary mb-0 flex items-center gap-2">
+                              <span className="text-primary text-sm">⚖️</span>
+                              {children}
+                            </h1>
+                          </div>
+                        ),
+                        // Section headers with better visual hierarchy
+                        h2: ({ children }) => (
+                          <div className="bg-foreground/5 rounded-md p-3 mt-4 mb-3 border-l-3 border-primary">
+                            <h2 className="text-base font-semibold text-primary mb-0 flex items-center gap-2">
+                              <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                              {children}
+                            </h2>
+                          </div>
+                        ),
+                        // Subsection headers
+                        h3: ({ children }) => (
+                          <h3 className="text-sm font-medium text-foreground/90 mb-2 mt-4 flex items-center gap-2 border-b border-foreground/10 pb-1">
+                            <span className="text-primary text-xs">▸</span>
+                            {children}
+                          </h3>
+                        ),
+                        // Enhanced paragraphs with better spacing
+                        p: ({ children }) => (
+                          <p className="text-sm leading-relaxed mb-3 text-foreground/90 last:mb-1">
+                            {children}
+                          </p>
+                        ), // Styled lists with better visual hierarchy
+                        ul: ({ children }) => (
+                          <div className="bg-foreground/3 rounded-md p-3 mb-3">
+                            <ul className="text-sm space-y-2 ml-0 list-none">
+                              {children}
+                            </ul>
+                          </div>
+                        ),
+                        ol: ({ children }) => (
+                          <div className="bg-foreground/3 rounded-md p-3 mb-3">
+                            <ol className="text-sm space-y-2 ml-0 list-none counter-reset-list">
+                              {children}
+                            </ol>
+                          </div>
+                        ),
+                        // Enhanced blockquotes for important information
+                        blockquote: ({ children }) => (
+                          <div className="border-l-4 border-primary/30 bg-gradient-to-r from-primary/5 to-primary/3 rounded-r-lg p-4 my-4 relative">
+                            <div className="absolute top-2 left-2 text-primary/30 text-lg">
+                              ❝
+                            </div>
+                            <blockquote className="italic text-foreground/80 pl-6">
+                              {children}
+                            </blockquote>
+                          </div>
+                        ),
+                        // Highlighted text
+                        strong: ({ children }) => (
+                          <strong className="font-semibold text-primary bg-primary/10 px-1 rounded">
+                            {children}
+                          </strong>
+                        ),
+                        // Enhanced inline code
+                        code: ({ children }) => (
+                          <code className="bg-foreground/10 px-2 py-1 rounded text-xs font-mono border border-foreground/20">
+                            {children}
+                          </code>
+                        ),
+                        // Enhanced horizontal rule
+                        hr: () => (
+                          <div className="flex items-center my-6">
+                            <hr className="flex-1 border-foreground/20" />
+                            <span className="px-3 text-foreground/30 text-xs">
+                              ⚖️
+                            </span>
+                            <hr className="flex-1 border-foreground/20" />
+                          </div>
+                        ),
+                        // Enhanced tables for legal data
+                        table: ({ children }) => (
+                          <div className="overflow-x-auto my-4 rounded-lg border border-foreground/10">
+                            <table className="w-full text-sm">{children}</table>
+                          </div>
+                        ),
+                        thead: ({ children }) => (
+                          <thead className="bg-primary/10 text-primary font-medium">
+                            {children}
+                          </thead>
+                        ),
+                        tbody: ({ children }) => (
+                          <tbody className="divide-y divide-foreground/10">
+                            {children}
+                          </tbody>
+                        ),
+                        td: ({ children }) => (
+                          <td className="px-4 py-3 text-foreground/80">
+                            {children}
+                          </td>
+                        ),
+                        th: ({ children }) => (
+                          <th className="px-4 py-3 text-left font-medium">
+                            {children}
+                          </th>
+                        ),
+                      }}
+                    >
+                      {msg.content}
+                    </ReactMarkdown>
+                  </div>
                   {/* Message timestamp */}
                   <div
-                    className={`text-[10px] mt-1 text-foreground/50 ${
+                    className={`text-[10px] mt-3 pt-2 border-t border-foreground/10 text-foreground/50 ${
                       msg.role === "user" ? "text-right" : ""
                     }`}
                   >
@@ -293,7 +457,9 @@ export default function LawChat() {
                     size={16}
                   />
                 </div>
-                <span className="text-sm">AI is thinking...</span>
+                <span className="text-sm">
+                  Verdicta is analyzing your query...
+                </span>
               </motion.div>
             )}
           </AnimatePresence>
@@ -308,14 +474,14 @@ export default function LawChat() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className="text-foreground/60 text-sm mb-3">
-                  Try asking these questions:
+                <p className="text-foreground/60 text-sm mb-3 font-medium">
+                  💡 Try asking these legal questions:
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {exampleQuestions.map((question, idx) => (
                     <motion.button
                       key={idx}
-                      className="text-sm bg-foreground/5 hover:bg-foreground/10 border border-foreground/10 rounded-full px-3 py-1 text-foreground/80 text-left transition-colors"
+                      className="text-sm bg-gradient-to-r from-foreground/5 to-foreground/10 hover:from-primary/10 hover:to-primary/5 border border-foreground/10 hover:border-primary/30 rounded-lg px-4 py-3 text-foreground/80 hover:text-primary text-left transition-all duration-200 shadow-sm hover:shadow-md"
                       onClick={() => sendMessage(question)}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{
@@ -323,7 +489,12 @@ export default function LawChat() {
                         y: 0,
                         transition: { delay: 0.1 + idx * 0.1 },
                       }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
+                      <span className="block text-xs text-foreground/50 mb-1">
+                        Q{idx + 1}:
+                      </span>
                       {question}
                     </motion.button>
                   ))}
@@ -335,14 +506,14 @@ export default function LawChat() {
 
         {/* Input Bar */}
         <motion.div
-          className="sticky bottom-0 p-3 md:p-4 bg-background border-t border-foreground/10"
+          className="sticky bottom-0 p-3 md:p-4 bg-background/95 backdrop-blur-sm border-t border-foreground/10"
           variants={fadeInUp}
           initial="initial"
           animate="animate"
           transition={{ duration: 0.4, delay: 0.2 }}
         >
           <motion.div
-            className="flex items-center gap-2 bg-foreground/5 rounded-lg p-2 border border-foreground/10 focus-within:border-primary/50 transition-colors"
+            className="flex items-center gap-2 bg-gradient-to-r from-foreground/5 to-foreground/10 rounded-xl p-3 border border-foreground/10 focus-within:border-primary/50 focus-within:from-primary/5 focus-within:to-primary/10 transition-all duration-200 shadow-sm"
             variants={scaleIn}
             initial="initial"
             animate="animate"
@@ -350,10 +521,10 @@ export default function LawChat() {
           >
             <textarea
               ref={inputRef}
-              className={`w-full outline-none bg-transparent resize-none min-h-[40px] max-h-[120px] py-1 px-2 ${
+              className={`w-full outline-none bg-transparent resize-none min-h-[40px] max-h-[120px] py-1 px-2 placeholder:text-foreground/50 ${
                 input ? "overflow-auto" : "overflow-hidden"
               }`}
-              placeholder="Ask a legal question..."
+              placeholder="Ask your legal question here... (e.g., 'What are my rights under Article 21?' or 'How to file a consumer complaint?')"
               value={input}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
@@ -362,7 +533,7 @@ export default function LawChat() {
 
             {input && (
               <motion.button
-                className="text-foreground/50 hover:text-foreground/80 p-1"
+                className="text-foreground/50 hover:text-foreground/80 p-1 rounded-md hover:bg-foreground/10 transition-colors"
                 onClick={() => setInput("")}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -374,7 +545,7 @@ export default function LawChat() {
             )}
 
             <motion.button
-              className={`bg-primary text-background p-2 rounded-md disabled:opacity-50 ${
+              className={`bg-gradient-to-r from-primary to-primary/80 text-background p-2.5 rounded-lg disabled:opacity-50 shadow-md hover:shadow-lg transition-all ${
                 !input.trim() ? "opacity-70" : "opacity-100"
               }`}
               onClick={() => sendMessage()}
@@ -385,9 +556,11 @@ export default function LawChat() {
               <PiPaperPlaneRight size={18} />
             </motion.button>
           </motion.div>
-          <p className="text-xs text-center mt-2 text-foreground/50">
-            Verdicta provides information based on Indian law, but it&apos;s not
-            legal advice.
+          <p className="text-xs text-center mt-3 text-foreground/50">
+            <span className="font-medium text-primary">Verdicta</span> provides
+            legal information based on Indian law.
+            <span className="font-medium"> This is not legal advice.</span>{" "}
+            Consult a qualified lawyer for specific legal matters.
           </p>
         </motion.div>
       </motion.div>
