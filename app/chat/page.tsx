@@ -245,7 +245,7 @@ export default function LawChat() {
         {/* Chat Messages */}
         <div
           ref={messagesContainerRef}
-          className="flex flex-col gap-3 overflow-y-auto flex-1 py-4 px-4"
+          className="flex flex-col gap-3 overflow-y-auto overflow-x-hidden flex-1 py-4 px-4"
         >
           <AnimatePresence initial={false}>
             {" "}
@@ -500,7 +500,6 @@ export default function LawChat() {
             )}
           </AnimatePresence>
         </div>
-
         {/* Input Bar */}
         <motion.div
           className="sticky bottom-0 p-3 md:p-4 bg-background/95 backdrop-blur-sm border-t border-foreground/10"
