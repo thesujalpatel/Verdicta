@@ -18,15 +18,7 @@ const defaultMessage: ChatMessage = {
   role: "assistant",
   content: `# 🔍 Welcome to Verdicta Legal Assistant
 
-## 📋 Quick Overview
 Your comprehensive AI legal assistant specializing in Indian law, ready to provide structured legal guidance and information.
-
-## ⚖️ Legal Expertise Areas
-**Specialized Knowledge:**
-- **Constitutional Law**: Fundamental rights, directive principles, constitutional amendments
-- **Criminal Law**: IPC, CrPC, evidence law, bail procedures
-- **Civil Law**: Contract law, property law, family law, consumer protection
-- **Corporate Law**: Company law, securities law, labor law
 
 ## 🎯 How I Can Help You
 **Legal Information Services:**
@@ -34,23 +26,6 @@ Your comprehensive AI legal assistant specializing in Indian law, ready to provi
 - **Procedure Guidance**: Step-by-step legal processes
 - **Rights Education**: Understanding your legal rights and obligations
 - **Document Insights**: Explaining legal documents and requirements
-
-## 📖 Example Questions You Can Ask
-**Popular Legal Queries:**
-- What are my fundamental rights under Article 21?
-- How to file a consumer complaint online?
-- Explain dowry laws and penalties in India
-- What is the process for anticipatory bail?
-- Rights of women under domestic violence law
-
-## ⚠️ Important Disclaimer
-**Please Note:**
-- 🚨 **Information Only**: Responses provide legal information, not personalized legal advice
-- 📝 **Consult Professionals**: For specific legal matters, always consult a qualified lawyer
-- ⏱️ **Current Laws**: Information based on current Indian legal framework
-
-## 🎯 Get Started
-Ask me any legal question and I'll provide structured, comprehensive information to help you understand your legal position.
 
 ---
 *⚖️ Verdicta provides legal information based on Indian law. This is not personalized legal advice.*`,
@@ -120,17 +95,37 @@ export default function LawChat() {
       inputRef.current.focus();
     }
   }, []);
-
-  // Scroll to bottom when messages change
-  const scrollToBottom = () => {
+  // Scroll to show new message with context above
+  const scrollToNewMessage = () => {
     const container = messagesContainerRef.current;
     if (container) {
-      container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
+      // Get the last message element
+      const messageElements = container.querySelectorAll("[data-message-id]");
+      const lastMessage = messageElements[
+        messageElements.length - 1
+      ] as HTMLElement;
+
+      if (lastMessage && messageElements.length > 1) {
+        // Calculate position to show the new message with some context above
+        const containerHeight = container.clientHeight;
+        const messageTop = lastMessage.offsetTop;
+
+        // Show message starting at about 30% from top of container
+        const targetScrollTop = Math.max(0, messageTop - containerHeight * 0.3);
+
+        container.scrollTo({
+          top: targetScrollTop,
+          behavior: "smooth",
+        });
+      } else {
+        // For first message or fallback, scroll to bottom
+        container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
+      }
     }
   };
 
   useEffect(() => {
-    scrollToBottom();
+    scrollToNewMessage();
   }, [messages, loading]);
 
   // Handle sending a message
@@ -253,9 +248,11 @@ export default function LawChat() {
           className="flex flex-col gap-3 overflow-y-auto flex-1 py-4 px-4"
         >
           <AnimatePresence initial={false}>
+            {" "}
             {messages.map((msg) => (
               <motion.div
                 key={msg.id}
+                data-message-id={msg.id}
                 className={`flex items-start gap-3 max-w-[90%] md:max-w-[80%] w-fit ${
                   msg.role === "user" ? "ml-auto flex-row-reverse" : "mr-auto"
                 }`}
@@ -513,7 +510,7 @@ export default function LawChat() {
           transition={{ duration: 0.4, delay: 0.2 }}
         >
           <motion.div
-            className="flex items-center gap-2 bg-gradient-to-r from-foreground/5 to-foreground/10 rounded-xl p-3 border border-foreground/10 focus-within:border-primary/50 focus-within:from-primary/5 focus-within:to-primary/10 transition-all duration-200 shadow-sm"
+            className="flex items-center gap-2 bg-foreground/5 rounded-xl p-3 border border-foreground/10 focus-within:border-primary/90 transition-all duration-200 shadow-sm"
             variants={scaleIn}
             initial="initial"
             animate="animate"
