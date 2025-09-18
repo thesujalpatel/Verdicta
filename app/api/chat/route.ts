@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
           role: "user",
           content: prompt,
         },
-      ],      model: "llama3-70b-8192",
+      ],      model: "llama-3.1-8b-instant",
       temperature: 0.5,
       top_p: 0.9,
       max_completion_tokens: 2048,
