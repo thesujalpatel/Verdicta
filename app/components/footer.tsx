@@ -63,7 +63,7 @@ export default function Footer() {
               <h3 className="text-lg font-medium mb-4 text-primary">Authors</h3>
               <div className="flex flex-col space-x-4">
                 <a
-                  href="https://thesujalpatel.github.io"
+                  href="https://thesujalpatel.me"
                   className="text-foreground/70 hover:text-primary transition-colors w-fit"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -75,7 +75,7 @@ export default function Footer() {
                   </div>
                 </a>
                 <a
-                  href="https://github.com/Shreyash0712"
+                  href="https://shreyash0712.github.io"
                   className="text-foreground/70 hover:text-primary transition-colors w-fit"
                   target="_blank"
                   rel="noopener noreferrer"
