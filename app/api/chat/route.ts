@@ -3,18 +3,26 @@ import { Groq } from 'groq-sdk';
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-export async function POST(req: NextRequest) {
-  const { prompt } = await req.json();
+interface ChatMessage {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: Date;
+}
 
-  if (!prompt) {
-    return NextResponse.json({ error: 'Prompt is required.' }, { status: 400 });
+export async function POST(req: NextRequest) {
+  const { messages }: { messages: ChatMessage[] } = await req.json();
+
+  if (!messages || !Array.isArray(messages) || messages.length === 0) {
+    return NextResponse.json({ error: 'Messages array is required.' }, { status: 400 });
   }
 
   try {
-    const chatCompletion = await groq.chat.completions.create({
-      messages: [        {
-          role: "system",
-          content:            `You are **Verdicta**, an AI legal assistant specializing in Indian law. Your responses must be adaptive, informative, and appropriately sized based on the query complexity.
+    // Convert frontend messages to Groq format and add system message
+    const groqMessages: Array<{role: "system" | "user" | "assistant", content: string}> = [
+      {
+        role: "system" as const,
+        content: `You are **Verdicta**, an AI legal assistant specializing in Indian law. Your responses must be adaptive, informative, and appropriately sized based on the query complexity.
 
 **CRITICAL FORMATTING RULES:**
 1. **Scale response length based on information needed**
@@ -122,12 +130,19 @@ export async function POST(req: NextRequest) {
 - Practical and solution-oriented
 - Respectful of legal complexity
 - Clear about limitations`,
-        },
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],      model: "llama-3.1-8b-instant",
+      },
+      // Add conversation history, filtering out the default welcome message
+      ...messages
+        .filter((msg: ChatMessage) => msg.id !== "welcome")
+        .map((msg: ChatMessage) => ({
+          role: msg.role as "user" | "assistant",
+          content: msg.content,
+        })),
+    ];
+
+    const chatCompletion = await groq.chat.completions.create({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      messages: groqMessages as any,      model: "llama-3.1-8b-instant",
       temperature: 0.5,
       top_p: 0.9,
       max_completion_tokens: 2048,
