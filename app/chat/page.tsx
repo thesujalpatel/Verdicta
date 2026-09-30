@@ -79,6 +79,8 @@ const springTransition: Transition = {
 
 export default function LawChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([defaultMessage]);
+  const [models, setModels] = useState<string[]>([]);
+  const [selectedModel, setSelectedModel] = useState("");
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState(true);
@@ -94,6 +96,19 @@ export default function LawChat() {
     if (inputRef.current) {
       inputRef.current.focus();
     }
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/chat")
+      .then((res) => {
+        if (!res.ok) throw new Error("Unable to load models");
+        return res.json();
+      })
+      .then((data: { models?: string[]; defaultModel?: string }) => {
+        setModels(data.models ?? []);
+        setSelectedModel(data.defaultModel ?? data.models?.[0] ?? "");
+      })
+      .catch((error) => console.error("Error loading Groq models:", error));
   }, []);
   // Scroll to show new message with context above
   const scrollToNewMessage = () => {
@@ -151,7 +166,10 @@ export default function LawChat() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...messages, userMessage] }),
+        body: JSON.stringify({
+          messages: [...messages, userMessage],
+          model: selectedModel || undefined,
+        }),
       });
 
       if (!res.ok) {
@@ -275,19 +293,17 @@ export default function LawChat() {
                       "h-8 w-8 text-primary border-2 border-primary/40 text-sm inline-flex items-center justify-center rounded-full shadow-md font-black"
                     }
                   >
-                    {msg.role === "user" ? (
+                    {msg.role === "user" ?
                       "U"
-                    ) : (
-                      <Logo className="w-4 h-4 text-primary" />
-                    )}
+                    : <Logo className="w-4 h-4 text-primary" />}
                   </div>
                 </motion.div>{" "}
                 {/* Message */}
                 <motion.div
                   className={`prose prose-sm max-w-none rounded-2xl p-4 ${
-                    msg.role === "user"
-                      ? "bg-gradient-to-br from-primary/10 to-primary/5 text-foreground rounded-tr-none border border-primary/20"
-                      : "bg-gradient-to-br from-background to-background/80 text-foreground rounded-tl-none border border-foreground/10 shadow-sm"
+                    msg.role === "user" ?
+                      "bg-gradient-to-br from-primary/10 to-primary/5 text-foreground rounded-tr-none border border-primary/20"
+                    : "bg-gradient-to-br from-background to-background/80 text-foreground rounded-tl-none border border-foreground/10 shadow-sm"
                   }`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -508,6 +524,29 @@ export default function LawChat() {
           animate="animate"
           transition={{ duration: 0.4, delay: 0.2 }}
         >
+          {models.length > 0 && (
+            <div className="flex items-center justify-end gap-2 mb-3">
+              <label
+                htmlFor="model-select"
+                className="text-xs text-foreground/50"
+              >
+                Model
+              </label>
+              <select
+                id="model-select"
+                value={selectedModel}
+                onChange={(event) => setSelectedModel(event.target.value)}
+                disabled={loading}
+                className="max-w-[220px] rounded-md border border-foreground/10 bg-background px-2 py-1 text-xs text-foreground/70 outline-none focus:border-primary"
+              >
+                {models.map((model) => (
+                  <option key={model} value={model}>
+                    {model}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
           <motion.div
             className="flex items-center gap-2 bg-foreground/5 rounded-xl p-3 border border-foreground/10 focus-within:border-primary/90 transition-all duration-200 shadow-sm"
             variants={scaleIn}

@@ -1,25 +1,81 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { Groq } from 'groq-sdk';
+import { NextRequest, NextResponse } from "next/server";
+import { Groq } from "groq-sdk";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+const configuredModel = process.env.GROQ_MODEL;
 
 interface ChatMessage {
   id: string;
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   content: string;
   timestamp: Date;
 }
 
+type GroqModel = {
+  id: string;
+  active?: boolean;
+};
+
+async function getAvailableModels() {
+  const response = await groq.models.list();
+  return response.data
+    .filter((model: GroqModel) => model.active !== false)
+    .map((model: GroqModel) => model.id)
+    .filter((modelId: string) =>
+      /instruct|versatile|gpt-oss|compound|qwen|kimi/i.test(modelId),
+    )
+    .sort();
+}
+
+export async function GET() {
+  try {
+    const models = await getAvailableModels();
+    return NextResponse.json({
+      models,
+      defaultModel:
+        configuredModel && models.includes(configuredModel) ?
+          configuredModel
+        : models[0],
+    });
+  } catch (err) {
+    console.error("Unable to load Groq models:", err);
+    return NextResponse.json(
+      { error: "Unable to load available models." },
+      { status: 502 },
+    );
+  }
+}
+
 export async function POST(req: NextRequest) {
-  const { messages }: { messages: ChatMessage[] } = await req.json();
+  const { messages, model }: { messages: ChatMessage[]; model?: string } =
+    await req.json();
 
   if (!messages || !Array.isArray(messages) || messages.length === 0) {
-    return NextResponse.json({ error: 'Messages array is required.' }, { status: 400 });
+    return NextResponse.json(
+      { error: "Messages array is required." },
+      { status: 400 },
+    );
   }
 
   try {
+    const availableModels = await getAvailableModels();
+    const selectedModel = model || configuredModel || availableModels[0];
+
+    if (!selectedModel || !availableModels.includes(selectedModel)) {
+      return NextResponse.json(
+        {
+          error:
+            "The selected model is not available. Please choose another model.",
+        },
+        { status: 400 },
+      );
+    }
+
     // Convert frontend messages to Groq format and add system message
-    const groqMessages: Array<{role: "system" | "user" | "assistant", content: string}> = [
+    const groqMessages: Array<{
+      role: "system" | "user" | "assistant";
+      content: string;
+    }> = [
       {
         role: "system" as const,
         content: `You are **Verdicta**, an AI legal assistant specializing in Indian law. Your responses must be adaptive, informative, and appropriately sized based on the query complexity.
@@ -142,20 +198,22 @@ export async function POST(req: NextRequest) {
 
     const chatCompletion = await groq.chat.completions.create({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      messages: groqMessages as any,      model: "llama-3.1-8b-instant",
+      messages: groqMessages as any,
+      model: selectedModel,
       temperature: 0.5,
       top_p: 0.9,
       max_completion_tokens: 2048,
     });
 
-    const response = chatCompletion.choices[0]?.message?.content || 'No response';
+    const response =
+      chatCompletion.choices[0]?.message?.content || "No response";
 
     return NextResponse.json({ response });
   } catch (err) {
     console.error(err);
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : 'Unknown error' },
-      { status: 500 }
+      { error: err instanceof Error ? err.message : "Unknown error" },
+      { status: 500 },
     );
   }
 }
