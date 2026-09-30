@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Groq } from "groq-sdk";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const configuredModel = process.env.GROQ_MODEL;
+let groqClient: Groq | undefined;
 
 interface ChatMessage {
   id: string;
@@ -16,8 +16,17 @@ type GroqModel = {
   active?: boolean;
 };
 
+function getGroqClient() {
+  if (!process.env.GROQ_API_KEY) {
+    throw new Error("GROQ_API_KEY is missing or empty.");
+  }
+
+  groqClient ??= new Groq({ apiKey: process.env.GROQ_API_KEY });
+  return groqClient;
+}
+
 async function getAvailableModels() {
-  const response = await groq.models.list();
+  const response = await getGroqClient().models.list();
   return response.data
     .filter((model: GroqModel) => model.active !== false)
     .map((model: GroqModel) => model.id)
@@ -196,7 +205,7 @@ export async function POST(req: NextRequest) {
         })),
     ];
 
-    const chatCompletion = await groq.chat.completions.create({
+    const chatCompletion = await getGroqClient().chat.completions.create({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       messages: groqMessages as any,
       model: selectedModel,
